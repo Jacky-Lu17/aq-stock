@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>阿慶台股網 — 2026-05-04</title>
+<style>
+  :root{
+    --bg:#0d1117;--card:#161b22;--card2:#1c2128;--border:#30363d;
+    --text:#e6edf3;--sub:#8b949e;--dim:#6e7681;
+    --green:#3fb950;--red:#f85149;--blue:#58a6ff;
+    --yellow:#d29922;--purple:#bc8cff;--orange:#ffa657;
+    --radius:6px;--shadow:0 1px 3px rgba(0,0,0,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+        background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
+
+  /* ── Header ── */
+  .header{background:var(--card);border-bottom:1px solid var(--border);
+           padding:10px 20px;display:flex;align-items:center;
+           justify-content:space-between;position:sticky;top:0;z-index:20}
+  .header h1{font-size:1rem;font-weight:700;letter-spacing:.5px;
+              color:var(--text);font-family:"SF Mono","Courier New",monospace}
+  .header h1 span{color:var(--blue)}
+  .header .sub{font-size:.72rem;color:var(--dim);margin-top:1px}
+  .header .meta{font-size:.72rem;color:var(--sub);text-align:right;line-height:1.8}
+
+  /* ── Summary Bar ── */
+  .summary{display:flex;gap:6px;padding:7px 20px;background:var(--card2);
+            border-bottom:1px solid var(--border);flex-wrap:wrap;align-items:center}
+  .sum-chip{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;
+             border-radius:4px;font-weight:600;font-size:.78rem;white-space:nowrap;
+             border:1px solid var(--border)}
+  .sum-buy{color:var(--blue)}
+  .sum-watch{color:var(--yellow)}
+  .sum-pending{color:var(--purple)}
+  .sum-pos{color:var(--green)}
+  .sum-on{color:var(--orange)}
+  .sum-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+
+  /* ── Tabs ── */
+  .tabs{display:flex;padding:0 20px;background:var(--card2);
+         border-bottom:1px solid var(--border);overflow-x:auto;
+         position:sticky;top:41px;z-index:10}
+  .tab-btn{padding:8px 14px;border:none;background:transparent;
+            cursor:pointer;font-size:.78rem;font-weight:500;color:var(--sub);
+            border-bottom:2px solid transparent;margin-bottom:-1px;
+            white-space:nowrap;transition:color .1s;letter-spacing:.3px}
+  .tab-btn:hover{color:var(--text)}
+  .tab-btn.active{color:var(--blue);border-bottom-color:var(--blue);font-weight:700}
+  .tab-content{display:none;padding:14px 20px}
+  .tab-content.active{display:block}
+
+  /* ── Callout boxes ── */
+  .callout{border-radius:var(--radius);padding:8px 12px;margin-bottom:10px;
+            font-size:.78rem;line-height:1.6}
+  .callout-info{background:#0d2137;border-left:3px solid var(--blue);color:#a8c9f5}
+  .callout-warn{background:#1e0f0f;border-left:3px solid var(--red);color:#f5a0a0}
+  .callout-ok{background:#0d1f0d;border-left:3px solid var(--green);color:#8fd49b}
+  .callout-key{background:#1e1800;border-left:3px solid var(--yellow);color:#d4b57a}
+  .alert-held{background:#1e0f0f;border:1px solid #5a1f1f;color:var(--red);
+               border-radius:var(--radius);padding:8px 12px;font-size:.78rem;margin-bottom:10px}
+
+  /* ── Section Header ── */
+  .sec-hdr{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+  .sec-hdr h2{font-size:.88rem;font-weight:700;color:var(--text);letter-spacing:.3px}
+  .sec-note{font-size:.72rem;color:var(--sub);background:var(--card2);
+             padding:2px 7px;border-radius:3px;border-left:2px solid var(--blue)}
+  .sec-note-warn{font-size:.72rem;color:var(--red);background:#1e0f0f;
+                  padding:2px 7px;border-radius:3px;border-left:2px solid var(--red)}
+
+  /* ── Table ── */
+  .tbl-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border);
+             background:var(--card);margin-bottom:12px}
+  table{width:100%;border-collapse:collapse}
+  th{background:var(--card2);padding:6px 10px;text-align:left;
+      font-size:.72rem;font-weight:600;color:var(--sub);
+      letter-spacing:.5px;white-space:nowrap;cursor:pointer;user-select:none;
+      border-bottom:1px solid var(--border);text-transform:uppercase}
+  th:hover{color:var(--text)}
+  td{padding:7px 10px;border-top:1px solid var(--border);vertical-align:middle}
+  tr:hover td{background:var(--card2)}
+  tr.held-row td{background:#1e1600}
+  tr.held-row:hover td{background:#2a1f00}
+  .empty{text-align:center;color:var(--dim);padding:20px;font-size:.82rem;
+          font-family:"SF Mono","Courier New",monospace}
+
+  /* ── Badges ── */
+  .score-badge{display:inline-block;background:rgba(88,166,255,.15);color:var(--blue);
+                border:1px solid rgba(88,166,255,.3);
+                padding:1px 7px;border-radius:3px;font-weight:700;font-size:.8rem;
+                font-family:"SF Mono","Courier New",monospace}
+  .score-watch{background:rgba(210,153,34,.15);color:var(--yellow);
+                border-color:rgba(210,153,34,.3)}
+  .badge-break{background:rgba(63,185,80,.15);color:var(--green);
+                border:1px solid rgba(63,185,80,.3);
+                padding:1px 7px;border-radius:3px;font-size:.72rem;font-weight:600}
+  .badge-base{background:rgba(188,140,255,.15);color:var(--purple);
+               border:1px solid rgba(188,140,255,.3);
+               padding:1px 7px;border-radius:3px;font-size:.72rem;font-weight:600}
+  .badge-mom{background:rgba(255,166,87,.15);color:var(--orange);
+              border:1px solid rgba(255,166,87,.3);
+              padding:1px 7px;border-radius:3px;font-size:.72rem;font-weight:600}
+  .badge-on{background:rgba(248,81,73,.15);color:var(--red);
+             border:1px solid rgba(248,81,73,.3);
+             padding:1px 7px;border-radius:3px;font-size:.72rem;font-weight:600}
+  .badge-warn{background:rgba(255,166,87,.15);color:var(--orange);
+               border:1px solid rgba(255,166,87,.3);
+               padding:2px 8px;border-radius:3px;font-size:.78rem;font-weight:600}
+  .badge-held{background:rgba(248,81,73,.2);color:var(--red);
+               padding:1px 6px;border-radius:3px;font-size:.68rem;font-weight:700;white-space:nowrap}
+  .bq-strong{color:var(--green);font-weight:700}
+  .bq-normal{color:var(--yellow);font-weight:700}
+  .bq-weak{color:var(--red);font-weight:700}
+
+  /* ── Signal chips ── */
+  .chip{display:inline-block;background:rgba(88,166,255,.1);color:var(--blue);
+         border:1px solid rgba(88,166,255,.2);
+         padding:0 5px;border-radius:3px;font-size:.7rem;margin:1px}
+  .chip-warn{background:rgba(248,81,73,.1);color:var(--red);border-color:rgba(248,81,73,.2)}
+  .chip-neg{background:rgba(248,81,73,.1);color:var(--red);border-color:rgba(248,81,73,.2)}
+  .chip-pos{background:rgba(63,185,80,.1);color:var(--green);border-color:rgba(63,185,80,.2)}
+  .hold-tag{background:rgba(210,153,34,.15);color:var(--yellow);
+             border:1px solid rgba(210,153,34,.2);
+             padding:0 6px;border-radius:3px;font-size:.74rem;font-weight:600;white-space:nowrap}
+
+  /* ── Price entries ── */
+  .entry-min{color:var(--green);font-weight:700;font-size:.84rem}
+  .entry-max{color:var(--purple);font-weight:700;font-size:.84rem}
+  .entry-max-cell th,.entry-max-cell{color:var(--purple)}
+
+  /* ── Colors ── */
+  .pos{color:var(--green);font-weight:600}
+  .neg{color:var(--red);font-weight:600}
+  .neu{color:var(--sub)}
+  .warn{color:var(--red)}
+  .warn-txt{color:var(--orange);font-weight:600}
+  .price{font-family:"SF Mono","Courier New",monospace;font-size:.85rem}
+
+  /* ── Progress bar ── */
+  .bar-wrap{width:70px;height:4px;background:var(--border);border-radius:2px;
+             display:inline-block;vertical-align:middle;margin-right:4px}
+  .bar{height:100%;background:linear-gradient(90deg,var(--purple),#d2aaff);border-radius:2px}
+  .bar-label{font-size:.75rem;color:var(--sub)}
+
+  /* ── Performance ── */
+  .perf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));
+              gap:8px;margin-bottom:12px}
+  .perf-card{background:var(--card);border:1px solid var(--border);
+              border-radius:var(--radius);padding:10px;text-align:center}
+  .perf-val{font-size:1.15rem;font-weight:700;margin-bottom:2px;
+             font-family:"SF Mono","Courier New",monospace}
+  .perf-lbl{font-size:.68rem;color:var(--sub);text-transform:uppercase;letter-spacing:.4px}
+  .wr-bar-wrap{display:flex;height:18px;border-radius:var(--radius);overflow:hidden;
+                margin-bottom:16px;font-size:.72rem;font-weight:600;color:#fff}
+  .wr-win{background:var(--green);display:flex;align-items:center;padding-left:7px;min-width:30px}
+  .wr-lose{background:var(--red);display:flex;align-items:center;padding-left:7px;min-width:30px}
+
+  /* ── Explosive badges ── */
+  .badge-exp-hot{background:rgba(255,166,87,.2);color:var(--orange);
+                  border:1px solid rgba(255,166,87,.3);
+                  padding:1px 6px;border-radius:3px;font-weight:700;font-size:.8rem;
+                  font-family:"SF Mono","Courier New",monospace}
+  .badge-exp-warm{background:rgba(210,153,34,.15);color:var(--yellow);
+                   border:1px solid rgba(210,153,34,.3);
+                   padding:1px 6px;border-radius:3px;font-weight:700;font-size:.8rem;
+                   font-family:"SF Mono","Courier New",monospace}
+  .badge-exp-cool{background:var(--card2);color:var(--sub);
+                   border:1px solid var(--border);
+                   padding:1px 6px;border-radius:3px;font-size:.8rem;
+                   font-family:"SF Mono","Courier New",monospace}
+
+  /* ── Code ── */
+  code{background:var(--card2);padding:1px 5px;border-radius:3px;
+        font-size:.78rem;font-family:"SF Mono","Courier New",monospace;color:var(--purple)}
+  .cmd-box{background:#010409;color:#3fb950;padding:10px 14px;border-radius:var(--radius);
+            font-family:"SF Mono","Courier New",monospace;font-size:.78rem;margin:8px 0;
+            border:1px solid var(--border);border-left:3px solid var(--green);line-height:1.9}
+
+  /* ── Explain table ── */
+  .explain-tbl{width:100%;border-collapse:collapse;border-radius:var(--radius);
+                overflow:hidden;font-size:.8rem;margin:8px 0;border:1px solid var(--border)}
+  .explain-tbl th{background:var(--card2);padding:7px 10px;text-align:left;
+                   font-weight:600;color:var(--sub);text-transform:uppercase;font-size:.68rem}
+  .explain-tbl td{padding:7px 10px;border-top:1px solid var(--border)}
+  .explain-tbl tr:hover td{background:var(--card2)}
+
+  /* ── Market Overview ── */
+  .mkt-summary{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .mkt-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+             padding:10px 14px;min-width:90px;flex:1;text-align:center}
+  .mkt-val{font-size:1.25rem;font-weight:700;line-height:1.2;
+            font-family:"SF Mono","Courier New",monospace}
+  .mkt-sub{font-size:.8rem;font-weight:600;margin-bottom:1px}
+  .mkt-lbl{font-size:.68rem;color:var(--sub);margin-top:2px;text-transform:uppercase;letter-spacing:.4px}
+  .mkt-sentiment{border-color:var(--blue)!important}
+  .sentiment-bar-wrap{height:4px;background:var(--border);border-radius:2px;margin:5px 0 2px}
+  .sentiment-bar-fill{height:100%;border-radius:2px;transition:width .3s}
+
+  /* ── 族群漲停板 ── */
+  .sector-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+                gap:8px;margin-bottom:12px}
+  .sector-card{background:var(--card);border:1px solid var(--border);
+                border-radius:var(--radius);padding:10px}
+  .sector-card-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .sector-name{font-weight:700;font-size:.82rem;color:var(--text);letter-spacing:.3px}
+  .sector-count{background:rgba(88,166,255,.1);color:var(--blue);
+                 border:1px solid rgba(88,166,255,.2);
+                 padding:0 6px;border-radius:3px;font-size:.7rem;font-weight:700}
+  .lu-chips{display:flex;flex-wrap:wrap;gap:3px}
+  .lu-chip{background:rgba(63,185,80,.1);color:var(--green);
+             border:1px solid rgba(63,185,80,.2);
+             padding:1px 6px;border-radius:3px;font-size:.74rem;font-weight:600;
+             cursor:default;white-space:nowrap}
+  .lu-chip small{color:var(--dim);margin-left:2px;font-weight:400}
+  .ld-chip{background:rgba(248,81,73,.1);color:var(--red);
+             border:1px solid rgba(248,81,73,.2);
+             padding:1px 6px;border-radius:3px;font-size:.74rem;font-weight:600;
+             cursor:default;white-space:nowrap}
+  .ld-chip small{color:var(--dim);margin-left:2px;font-weight:400}
+
+  @media(max-width:640px){
+    .tabs{padding:0 12px} .tab-content{padding:10px 12px}
+    .summary{padding:6px 12px} .header{padding:8px 12px}
+    .perf-grid{grid-template-columns:repeat(3,1fr)}
+    .mkt-summary{gap:5px} .mkt-card{min-width:70px;padding:8px 9px}
+    .mkt-val{font-size:1rem}
+    .sector-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<div class="header">
+  <div>
+    <h1>遵守紀律，提高勝率；相信阿慶，普天同慶</h1>
+    <div class="sub">嗡嘛呢唄咩哞</div>
+  </div>
+  <div class="meta">
+    updated <strong>2026-05-04 17:58</strong><br>
+    
+  </div>
+</div>
+
+<!-- ── 持倉警示 Banner ── -->
+
+
+<!-- ── Summary Bar ── -->
+<div class="summary">
+  <div class="sum-chip sum-buy"><div class="sum-dot" style="background:var(--blue)"></div>★ BUY&nbsp;<strong>5</strong></div>
+  <div class="sum-chip sum-watch"><div class="sum-dot" style="background:var(--yellow)"></div>◎ WATCH&nbsp;<strong>3</strong></div>
+  <div class="sum-chip sum-pending"><div class="sum-dot" style="background:var(--purple)"></div>⏳ 待突破&nbsp;<strong>0</strong></div>
+  <div class="sum-chip sum-on"><div class="sum-dot" style="background:var(--orange)"></div>⚡ 隔日沖&nbsp;<strong>0買/0看</strong></div>
+  <div class="sum-chip sum-pos"><div class="sum-dot" style="background:var(--green)"></div>💼 持倉&nbsp;<strong>0/5</strong></div>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:8px">
+    <span style="font-size:.78rem;color:var(--sub)">2026-05-04</span>
+    <button onclick="location.reload()" style="padding:4px 12px;border:1px solid var(--border);
+      border-radius:6px;background:#fff;cursor:pointer;font-size:.78rem;color:var(--sub)">↻ 重新整理</button>
+  </div>
+</div>
+
+<!-- ── Tabs ── -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('market',this)">📊 大盤</button>
+  <button class="tab-btn" onclick="showTab('buy',this)">★ BUY（5）</button>
+  <button class="tab-btn" onclick="showTab('watch',this)">◎ WATCH（3）</button>
+  <button class="tab-btn" onclick="showTab('pending',this)">⏳ 待突破（0）</button>
+  <button class="tab-btn" onclick="showTab('overnight',this)">⚡ 隔日沖（0買/0看）</button>
+  <button class="tab-btn" onclick="showTab('us_overnight',this)">🇺🇸 美股（0買/0看）</button>
+  <button class="tab-btn" onclick="showTab('positions',this)">💼 持倉（0）</button>
+  <button class="tab-btn" onclick="showTab('history',this)">📊 績效</button>
+  <button class="tab-btn" onclick="showTab('guide',this)">📌 說明</button>
+</div>
+
+<!-- ══════════ 大盤 ══════════ -->
+<div id="market" class="tab-content active">
+
+  <!-- 指數 + 氣氛 row -->
+  <div class="mkt-summary">
+    
+    <div class="mkt-card">
+      <div class="mkt-val pos">40,705.14</div>
+      <div class="mkt-sub pos">+4.57%</div>
+      <div class="mkt-lbl">加權指數 ^TWII</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mkt-val pos">756</div>
+      <div class="mkt-lbl">上漲家數</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mkt-val neg">1,050</div>
+      <div class="mkt-lbl">下跌家數</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mkt-val">144</div>
+      <div class="mkt-lbl">平盤家數</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mkt-val pos">64</div>
+      <div class="mkt-lbl">漲停家數</div>
+    </div>
+    <div class="mkt-card">
+      <div class="mkt-val neg">2</div>
+      <div class="mkt-lbl">跌停家數</div>
+    </div>
+    <div class="mkt-card mkt-sentiment" style="background:#f0fff4;border-color:#276749">
+      <div class="mkt-val" style="color:#276749">多頭強勢</div>
+      <div class="sentiment-bar-wrap">
+        <div class="sentiment-bar-fill" style="width:76%;background:#276749"></div>
+      </div>
+      <div class="mkt-lbl">氣氛評分 <strong style="color:#276749">+52</strong></div>
+    </div>
+  </div>
+
+  <!-- 漲跌家數橫條 -->
+  <div style="margin:10px 0 16px">
+    <div style="display:flex;height:18px;border-radius:9px;overflow:hidden;font-size:.72rem;font-weight:600;color:#fff">
+      <div style="background:#2f855a;width:39%;display:flex;align-items:center;padding-left:8px;min-width:40px">▲ 39%</div>
+      <div style="background:#718096;flex:1;display:flex;align-items:center;justify-content:center">平 144</div>
+      <div style="background:#c53030;width:54%;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;min-width:40px">54% ▼</div>
+    </div>
+  </div>
+
+  <!-- 漲停板 -->
+  <div class="sec-hdr">
+    <h2>漲停板（64 支）</h2>
+    <span class="sec-note">按族群分類，游標可查看漲幅與成交量</span>
+    <span style="font-size:.76rem;color:var(--sub);margin-left:auto">更新：2026-05-04 17:57</span>
+  </div>
+
+  <div class="sector-grid">
+    
+        <div class="sector-card">
+          <div class="sector-card-hdr">
+            <span class="sector-name">電子零組件</span>
+            <span class="sector-count">20 支</span>
+          </div>
+          <div class="lu-chips"><span class="lu-chip" title="臻鼎-KY +9.9% 量46,264張">4958<small>臻鼎-KY</small></span><span class="lu-chip" title="欣興 +10.0% 量34,452張">3037<small>欣興</small></span><span class="lu-chip" title="威盛 +9.9% 量21,343張">2388<small>威盛</small></span><span class="lu-chip" title="南電 +9.7% 量20,919張">8046<small>南電</small></span><span class="lu-chip" title="鉅橡 +10.0% 量11,175張">8074<small>鉅橡</small></span><span class="lu-chip" title="陽程 +9.9% 量7,723張">3498<small>陽程</small></span><span class="lu-chip" title="台燿 +9.9% 量7,322張">6274<small>台燿</small></span><span class="lu-chip" title="志聖 +9.9% 量5,898張">2467<small>志聖</small></span><span class="lu-chip" title="鑫科 +9.9% 量4,495張">3663<small>鑫科</small></span><span class="lu-chip" title="友威科 +9.9% 量3,063張">3580<small>友威科</small></span><span class="lu-chip" title="天虹 +10.0% 量2,855張">6937<small>天虹</small></span><span class="lu-chip" title="越峰 +10.0% 量2,805張">8121<small>越峰</small></span></div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-card-hdr">
+            <span class="sector-name">AI/半導體</span>
+            <span class="sector-count">15 支</span>
+          </div>
+          <div class="lu-chips"><span class="lu-chip" title="合晶 +10.0% 量58,707張">6182<small>合晶</small></span><span class="lu-chip" title="頎邦 +9.8% 量20,939張">6147<small>頎邦</small></span><span class="lu-chip" title="久元 +9.8% 量13,628張">6261<small>久元</small></span><span class="lu-chip" title="欣銓 +10.0% 量12,553張">3264<small>欣銓</small></span><span class="lu-chip" title="精拓科 +9.7% 量7,153張">4951<small>精拓科</small></span><span class="lu-chip" title="萬潤 +9.9% 量6,391張">6187<small>萬潤</small></span><span class="lu-chip" title="台星科 +9.8% 量3,914張">3265<small>台星科</small></span><span class="lu-chip" title="九暘 +9.9% 量1,186張">8040<small>九暘</small></span><span class="lu-chip" title="逸昌 +10.0% 量1,164張">3567<small>逸昌</small></span><span class="lu-chip" title="精測 +9.9% 量1,039張">6510<small>精測</small></span><span class="lu-chip" title="M31 +9.8% 量1,001張">6643<small>M31</small></span><span class="lu-chip" title="千附精密 +10.0% 量529張">6829<small>千附精密</small></span></div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-card-hdr">
+            <span class="sector-name">網通/5G</span>
+            <span class="sector-count">8 支</span>
+          </div>
+          <div class="lu-chips"><span class="lu-chip" title="全新 +10.0% 量24,628張">2455<small>全新</small></span><span class="lu-chip" title="波若威 +9.6% 量5,244張">3163<small>波若威</small></span><span class="lu-chip" title="東典光電 +10.0% 量3,179張">6588<small>東典光電</small></span><span class="lu-chip" title="華星光 +9.8% 量1,811張">4979<small>華星光</small></span><span class="lu-chip" title="昇達科 +10.0% 量1,765張">3491<small>昇達科</small></span><span class="lu-chip" title="前鼎 +9.8% 量629張">4908<small>前鼎</small></span><span class="lu-chip" title="康聯訊 +9.6% 量271張">3672<small>康聯訊</small></span><span class="lu-chip" title="安瑞-KY +9.8% 量156張">3664<small>安瑞-KY</small></span></div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-card-hdr">
+            <span class="sector-name">鋼鐵/機械</span>
+            <span class="sector-count">5 支</span>
+          </div>
+          <div class="lu-chips"><span class="lu-chip" title="大銀微系統 +9.9% 量10,276張">4576<small>大銀微系統</small></span><span class="lu-chip" title="高鋒 +10.0% 量8,388張">4510<small>高鋒</small></span><span class="lu-chip" title="直得 +10.0% 量4,524張">1597<small>直得</small></span><span class="lu-chip" title="高力 +9.7% 量3,576張">8996<small>高力</small></span><span class="lu-chip" title="萬在 +10.0% 量1,177張">4543<small>萬在</small></span></div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-card-hdr">
+            <span class="sector-name">AI/伺服器</span>
+            <span class="sector-count">4 支</span>
+          </div>
+          <div class="lu-chips"><span class="lu-chip" title="圓剛 +9.9% 量11,980張">2417<small>圓剛</small></span><span class="lu-chip" title="濱川 +9.9% 量3,939張">1569<small>濱川</small></span><span class="lu-chip" title="寶碩 +9.9% 量690張">5210<small>寶碩</small></span><span class="lu-chip" title="虹光 +10.0% 量454張">2380<small>虹光</small></span></div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-card-hdr">
+            <span class="sector-name">光電/面板</span>
+            <span class="sector-count">4 支</span>
+          </div>
+          <div class="lu-chips"><span class="lu-chip" title="高僑 +9.8% 量2,719張">6234<small>高僑</small></span><span class="lu-chip" title="碩禾 +9.8% 量2,454張">3691<small>碩禾</small></span><span class="lu-chip" title="由田 +9.9% 量1,979張">3455<small>由田</small></span><span class="lu-chip" title="臺龍 +9.8% 量842張">6246<small>臺龍</small></span></div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-card-hdr">
+            <span class="sector-name">其他</span>
+            <span class="sector-count">4 支</span>
+          </div>
+          <div class="lu-chips"><span class="lu-chip" title="北基 +9.8% 量2,339張">8927<small>北基</small></span><span class="lu-chip" title="微程式 +10.0% 量945張">7721<small>微程式</small></span><span class="lu-chip" title="日成-KY +9.8% 量873張">4807<small>日成-KY</small></span><span class="lu-chip" title="達輝-KY +9.8% 量156張">5276<small>達輝-KY</small></span></div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-card-hdr">
+            <span class="sector-name">化工/材料</span>
+            <span class="sector-count">2 支</span>
+          </div>
+          <div class="lu-chips"><span class="lu-chip" title="台達化 +9.8% 量24,559張">1309<small>台達化</small></span><span class="lu-chip" title="奇鈦科 +9.8% 量1,160張">3430<small>奇鈦科</small></span></div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-card-hdr">
+            <span class="sector-name">電動車/儲能</span>
+            <span class="sector-count">1 支</span>
+          </div>
+          <div class="lu-chips"><span class="lu-chip" title="宇隆 +9.9% 量6,174張">2233<small>宇隆</small></span></div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-card-hdr">
+            <span class="sector-name">生技/醫療</span>
+            <span class="sector-count">1 支</span>
+          </div>
+          <div class="lu-chips"><span class="lu-chip" title="睿生光電 +9.5% 量612張">6861<small>睿生光電</small></span></div>
+        </div>
+  </div>
+
+  
+    <div class="sec-hdr" style="margin-top:20px">
+      <h2 style="color:var(--red)">跌停板（2 支）</h2>
+    </div>
+    <div class="tbl-wrap" style="padding:12px 16px">
+      <div class="lu-chips"><span class="ld-chip" title="禾伸堂 -10.0%">3026<small>禾伸堂</small></span><span class="ld-chip" title="淳紳 -10.0%">4529<small>淳紳</small></span></div>
+    </div>
+
+</div>
+
+<!-- ══════════ BUY ══════════ -->
+<div id="buy" class="tab-content">
+  <div class="callout callout-info">
+    📌 <strong>止損/目標說明（重要）</strong>：此頁所有止損/目標均以<strong>今日收盤價</strong>計算，
+    適用於<strong>新進場者</strong>。若您已持有同一支股票，請至 <strong>💼 持倉</strong> 分頁查看
+    以您實際入場價計算的止損/目標，兩者數字不同，請勿混淆。
+  </div>
+  <div class="sec-hdr">
+    <h2>★ BUY — 今日突破確認（波段 15~30 天）</h2>
+    <span class="sec-note">技術面確認突破 + 放量，今日或明日開盤進場</span>
+  </div>
+  <div class="tbl-wrap">
+    <table id="buy-tbl">
+      <thead><tr>
+        <th onclick="sortTable('buy-tbl',0)">代號</th>
+        <th>公司</th>
+        <th onclick="sortTable('buy-tbl',2)">總分 ↕</th>
+        <th>模式</th>
+        <th onclick="sortTable('buy-tbl',4)">RSI ↕</th>
+        <th onclick="sortTable('buy-tbl',5)" title="ATR%×量比60日×RS，越高越爆炸">🔥爆發 ↕</th>
+        <th onclick="sortTable('buy-tbl',6)" title="今日量÷60日均量">量比(60日) ↕</th>
+        <th onclick="sortTable('buy-tbl',7)" title="ATR(14)/收盤×100">ATR% ↕</th>
+        <th title="以今日收盤計算，新進場止損參考">⬇ 止損（新入場）</th>
+        <th title="以今日收盤計算，新進場目標參考">⬆ 目標（新入場）</th>
+        <th style="color:#805ad5" title="超過此價代表追高，建議不買">🚫 最高進場價</th>
+        <th>建議持有</th>
+        <th>訊號</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>2359</strong></td>
+          <td style="font-size:.85rem">所羅門</td>
+          <td><span class="score-badge">90.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>62.32</td>
+          <td><span class="badge-exp-hot">27.53</span></td>
+          <td>3.58x</td>
+          <td>4.68%</td>
+          <td class="price warn">107.86</td>
+          <td class="price pos">135.71</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">15~20 天</span></td>
+          <td class="signals"><span class="chip">短強+6.4%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">族群同步(電子工業)⚡</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>2449</strong></td>
+          <td style="font-size:.85rem">京元電子</td>
+          <td><span class="score-badge">100.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>61.36</td>
+          <td><span class="badge-exp-hot">21.64</span></td>
+          <td>2.99x</td>
+          <td>5.56%</td>
+          <td class="price warn">268.86</td>
+          <td class="price pos">352.96</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">15~20 天</span></td>
+          <td class="signals"><span class="chip">短強+3.0%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">📈月營收歷史新高</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>3029</strong></td>
+          <td style="font-size:.85rem">零壹</td>
+          <td><span class="score-badge">100.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>59.33</td>
+          <td><span class="badge-exp-hot">10.94</span></td>
+          <td>3.04x</td>
+          <td>2.56%</td>
+          <td class="price warn">96.77</td>
+          <td class="price pos">109.84</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">15~20 天</span></td>
+          <td class="signals"><span class="chip">短強+4.1%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">信券回補↑</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>3356</strong></td>
+          <td style="font-size:.85rem">奇偶</td>
+          <td><span class="score-badge">97.23</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>62.93</td>
+          <td><span class="badge-exp-hot">7.77</span></td>
+          <td>1.88x</td>
+          <td>3.25%</td>
+          <td class="price warn">50.49</td>
+          <td class="price pos">59.27</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">15~20 天</span></td>
+          <td class="signals"><span class="chip">短強+2.7%</span> <span class="chip chip-warn">⚠️10日均量685張 < 1000張（滑價風險）</span> <span class="chip">📊營收MoM連續加速↑</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>3580</strong></td>
+          <td style="font-size:.85rem">友威科</td>
+          <td><span class="score-badge">77.58</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>60.92</td>
+          <td><span class="badge-exp-hot">23.37</span></td>
+          <td>2.62x</td>
+          <td>5.88%</td>
+          <td class="price warn">75.8</td>
+          <td class="price pos">101.05</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">10~15 天</span></td>
+          <td class="signals"><span class="chip">短強+5.2%↑</span> <span class="chip chip-warn">🔴高風險→倉位歸零</span></td>
+        </tr></tbody>
+    </table>
+  </div>
+  <div class="cmd-box">
+    # 進場後立即登記（系統自動計算止損/目標）<br>
+    python position_tracker.py add &lt;代號&gt;
+  </div>
+</div>
+
+<!-- ══════════ WATCH ══════════ -->
+<div id="watch" class="tab-content">
+  <div class="callout callout-info">
+    📌 此頁止損/目標以<strong>今日收盤價</strong>計算，僅供新進場參考。現有持倉請看 💼 持倉 分頁。
+  </div>
+  <div class="sec-hdr">
+    <h2>◎ WATCH — 動能觀察中（尚未突破）</h2>
+    <span class="sec-note">BUY 名單為空時，可從此選整理天數最長且距壓力最近的</span>
+  </div>
+  <div class="tbl-wrap">
+    <table id="watch-tbl">
+      <thead><tr>
+        <th onclick="sortTable('watch-tbl',0)">代號</th>
+        <th>公司</th>
+        <th onclick="sortTable('watch-tbl',2)">總分 ↕</th>
+        <th>模式</th>
+        <th onclick="sortTable('watch-tbl',4)">RSI ↕</th>
+        <th title="以今日收盤計算，新進場止損參考">⬇ 止損（新入場）</th>
+        <th title="以今日收盤計算，新進場目標參考">⬆ 目標（新入場）</th>
+        <th style="color:#805ad5">最高進場參考</th>
+        <th>訊號</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>6446</strong></td>
+          <td style="font-size:.85rem">藥華藥</td>
+          <td><span class="score-badge score-watch">92.5</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>55.24</td>
+          <td class="price warn">618.71</td>
+          <td class="price pos">724.43</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短強+3.9%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️10日均量1732張 < 3000張（高價股）（滑價風險）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>6505</strong></td>
+          <td style="font-size:.85rem">台塑化</td>
+          <td><span class="score-badge score-watch">87.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>64.67</td>
+          <td class="price warn">52.24</td>
+          <td class="price pos">62.64</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短強+6.5%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">⬇️降級: 今日BUY超過5檔，按總分排第6</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>8249</strong></td>
+          <td style="font-size:.85rem">菱光</td>
+          <td><span class="score-badge score-watch">81.25</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>54.38</td>
+          <td class="price warn">46.73</td>
+          <td class="price pos">53.53</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短中性0.1%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️10日均量547張 < 1000張（滑價風險）</span></td>
+        </tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════ 待突破 ══════════ -->
+<div id="pending" class="tab-content">
+  <div class="sec-hdr"><h2>⏳ 待突破 — 盤整蓄力清單</h2></div>
+  <div class="callout callout-ok">
+    📦 基底已形成但尚未突破壓力區。<strong>出現成交量 ≥ 1.5倍 + 放量長紅突破</strong>時，隔日即可進場。<br>
+    距壓力 &lt; 2% 且整理 &gt; 15天 → 重點盯盤對象。
+  </div>
+  <div class="tbl-wrap">
+    <table id="pending-tbl">
+      <thead><tr>
+        <th onclick="sortTable('pending-tbl',0)">代號</th>
+        <th>公司</th>
+        <th>品質</th>
+        <th onclick="sortTable('pending-tbl',3)">整理天數 ↕</th>
+        <th onclick="sortTable('pending-tbl',4)">距壓力 ↕</th>
+        <th onclick="sortTable('pending-tbl',5)">RSI ↕</th>
+        <th>訊號</th>
+      </tr></thead>
+      <tbody><tr><td colspan="7" class="empty">今日無蓄力觀察股</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════ 隔日沖 ══════════ -->
+<div id="overnight" class="tab-content">
+  <div class="callout callout-warn">
+    ⚡ <strong>隔日沖止損/目標說明</strong>：此頁數字均以<strong>今日收盤價</strong>計算，僅供明日新進場判斷。
+    若您已持有某支股票，其止損/目標在 💼 持倉 分頁，以您的實際入場價為準，請勿替換。
+  </div>
+  <div class="callout callout-key">
+    🕘 <strong>開盤操作流程</strong>：明日 09:00 確認開盤價是否在進場區間內。
+    若開盤低於「開盤下限」→ 跳空跌，放棄買入。若高於「開盤上限」→ 追高，放棄買入。
+    區間內開盤 → 可進場，最長持有 3 天。
+  </div>
+
+  <div class="sec-hdr" style="margin-top:4px">
+    <h2 style="color:var(--orange)">★ BUY（0）</h2>
+    <span class="sec-note">技術 + 籌碼雙確認</span>
+  </div>
+  <div class="tbl-wrap" style="margin-bottom:20px">
+    <table id="on-buy-tbl">
+      <thead><tr>
+        <th onclick="sortTable('on-buy-tbl',0)">代號</th>
+        <th>公司</th>
+        <th onclick="sortTable('on-buy-tbl',2)">總分 ↕</th>
+        <th>技術/籌碼</th>
+        <th>建議倉位</th>
+        <th title="以今日收盤計算的止損，非您持倉止損">⬇ 止損（新入場）</th>
+        <th title="以今日收盤計算的目標，非您持倉目標">⬆ 目標（新入場）</th>
+        <th style="color:var(--green)" title="開盤若低於此價代表跳空下跌，建議放棄">✅ 開盤下限</th>
+        <th style="color:var(--purple)" title="開盤若高於此價代表追高，建議放棄">🚫 開盤上限</th>
+        <th>持有</th>
+        <th>訊號</th>
+      </tr></thead>
+      <tbody><tr><td colspan="11" class="empty">今日無 BUY 標的</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="sec-hdr">
+    <h2 style="color:var(--yellow)">◎ WATCH（0）</h2>
+    <span class="sec-note">訊號較弱，謹慎試單</span>
+  </div>
+  <div class="tbl-wrap">
+    <table id="on-watch-tbl">
+      <thead><tr>
+        <th onclick="sortTable('on-watch-tbl',0)">代號</th>
+        <th>公司</th>
+        <th onclick="sortTable('on-watch-tbl',2)">總分 ↕</th>
+        <th>技術/籌碼</th>
+        <th>建議倉位</th>
+        <th>⬇ 止損（新入場）</th>
+        <th>⬆ 目標（新入場）</th>
+        <th style="color:var(--green)">✅ 開盤下限</th>
+        <th style="color:var(--purple)">🚫 開盤上限</th>
+        <th>持有</th>
+        <th>訊號</th>
+      </tr></thead>
+      <tbody><tr><td colspan="11" class="empty">今日無 WATCH 標的</td></tr></tbody>
+    </table>
+  </div>
+  <div class="cmd-box">cd ../overnight_bot &amp;&amp; python main.py --auto twse --only-positive</div>
+</div>
+
+<!-- ══════════ 美股 ══════════ -->
+<div id="us_overnight" class="tab-content">
+  <div class="sec-hdr">
+    <h2>🇺🇸 美股短線選股（元大複委託）</h2>
+    <span class="sec-note">技術 70% / 市場環境 30%｜1~3 天持有｜財報前 7 天自動排除</span>
+  </div>
+  <div class="callout callout-key">
+    ⏱ <strong>複委託操作時序</strong>：晚上跑 us_bot → 隔日白天（台灣時間）掛開盤單 →
+    美股 09:30 EST 成交 → 1~3 天內獲利了結。<br>
+    ⚠️ 手續費約 0.5~1%/筆，確認目標漲幅 ≥ 3% 才值得進場。
+  </div>
+  <h3 style="margin:12px 0 6px;font-size:.92rem;color:var(--green)">★ BUY（0）</h3>
+  <div class="tbl-wrap" style="margin-bottom:16px">
+    <table id="us-buy-tbl">
+      <thead><tr>
+        <th>代號</th><th>總分</th><th>技術/環境</th><th>持倉</th>
+        <th>⬇ 止損</th><th>⬆ 目標</th><th style="color:#805ad5">最高進場</th><th>下次財報</th><th>訊號</th>
+      </tr></thead>
+      <tbody><tr><td colspan="9" class="empty">今日無 BUY 標的</td></tr></tbody>
+    </table>
+  </div>
+  <h3 style="margin:12px 0 6px;font-size:.92rem;color:var(--yellow)">◎ WATCH（0）</h3>
+  <div class="tbl-wrap">
+    <table id="us-watch-tbl">
+      <thead><tr>
+        <th>代號</th><th>總分</th><th>技術/環境</th><th>持倉</th>
+        <th>⬇ 止損</th><th>⬆ 目標</th><th style="color:#805ad5">最高進場</th><th>下次財報</th><th>訊號</th>
+      </tr></thead>
+      <tbody><tr><td colspan="9" class="empty">今日無 WATCH 標的</td></tr></tbody>
+    </table>
+  </div>
+  <div class="cmd-box">cd ../us_bot &amp;&amp; python main.py</div>
+</div>
+
+<!-- ══════════ 持倉 ══════════ -->
+<div id="positions" class="tab-content">
+  <div class="callout callout-warn" style="border-left-color:#e53e3e">
+    🔒 <strong>持倉止損/目標 — 以您的實際入場價計算（這是您應遵守的數字）</strong><br>
+    此頁的止損和目標價是系統在您買入當下，依當時入場價計算出來的，
+    不會因為隔天出現新訊號而改變。<br><br>
+    <strong>常見混淆場景</strong>：20號買入 2330 @ 850 元，21號 2330 再度出現 BUY 訊號，
+    新訊號的止損/目標是依 21 號收盤價（例如 870 元）重新計算的，
+    與您 850 元的部位<strong>完全無關</strong>。
+    管理您 850 元倉位的止損/目標，永遠看此頁的數字。
+  </div>
+  <div class="sec-hdr">
+    <h2>💼 持倉管理（0 / 5 格）</h2>
+    <span class="sec-note">每日收盤後執行 position_tracker.py 更新狀態</span>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr>
+        <th>代號 / 公司</th>
+        <th>策略</th>
+        <th>買入日</th>
+        <th>買入價</th>
+        <th title="以您的買入價計算">⬇ 止損（入場價基準）</th>
+        <th title="以您的買入價計算">⬆ 目標（入場價基準）</th>
+        <th title="已持有 / 最長持有天數">持有天 / 上限</th>
+        <th title="最長持有天數 - 已持有天數">剩餘天數</th>
+        <th>平倉</th>
+      </tr></thead>
+      <tbody><tr><td colspan="9" class="empty">目前無持倉，執行 position_tracker.py add 代號 新增</td></tr></tbody>
+    </table>
+  </div>
+  <div class="cmd-box">
+    python position_tracker.py           # 每日例行檢查<br>
+    python position_tracker.py add 2330  # 買進後登記<br>
+    python position_tracker.py close 2330 380.0  # 賣出後登記（指定賣出價）
+  </div>
+</div>
+
+<!-- ══════════ 績效 ══════════ -->
+<div id="history" class="tab-content">
+  <div class="sec-hdr"><h2>📊 近期績效摘要</h2></div>
+  
+    <div class="perf-grid">
+      <div class="perf-card">
+        <div class="perf-val pos">+1.74%</div>
+        <div class="perf-lbl">平均損益</div>
+      </div>
+      <div class="perf-card">
+        <div class="perf-val">50.0%</div>
+        <div class="perf-lbl">勝率（7勝/7敗）</div>
+      </div>
+      <div class="perf-card">
+        <div class="perf-val pos">+7.54%</div>
+        <div class="perf-lbl">平均獲利</div>
+      </div>
+      <div class="perf-card">
+        <div class="perf-val neg">-4.07%</div>
+        <div class="perf-lbl">平均虧損</div>
+      </div>
+      <div class="perf-card">
+        <div class="perf-val">1.85 : 1</div>
+        <div class="perf-lbl">盈虧比</div>
+      </div>
+      <div class="perf-card">
+        <div class="perf-val pos">+16.40%</div>
+        <div class="perf-lbl">單筆最佳</div>
+      </div>
+      <div class="perf-card">
+        <div class="perf-val neg">-12.03%</div>
+        <div class="perf-lbl">單筆最差</div>
+      </div>
+    </div>
+    <div class="wr-bar-wrap">
+      <div class="wr-win"  style="width:50%">獲利 50%</div>
+      <div class="wr-lose" style="width:50%">虧損 50%</div>
+    </div>
+  <div class="sec-hdr" style="margin-top:20px"><h2>歷史平倉紀錄</h2></div>
+  <div class="tbl-wrap">
+    <table id="hist-tbl">
+      <thead><tr>
+        <th>代號</th><th>買入日</th><th>賣出日</th>
+        <th>買入價</th><th>賣出價</th>
+        <th onclick="sortTable('hist-tbl',5)">損益% ↕</th>
+        <th>出場原因</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>3006</strong></td>
+          <td>2026-04-23</td>
+          <td>2026-04-24</td>
+          <td class="price">171.65</td>
+          <td class="price">151.0</td>
+          <td class="neg"><strong>▼ 12.03%</strong></td>
+          <td>手動平倉</td>
+        </tr>
+
+        <tr>
+          <td><strong>2441</strong></td>
+          <td>2026-04-23</td>
+          <td>2026-04-24</td>
+          <td class="price">98.48</td>
+          <td class="price">87.1</td>
+          <td class="neg"><strong>▼ 11.56%</strong></td>
+          <td>手動平倉</td>
+        </tr>
+
+        <tr>
+          <td><strong>4938</strong></td>
+          <td>2026-04-20</td>
+          <td>2026-04-22</td>
+          <td class="price">84.07</td>
+          <td class="price">83.8</td>
+          <td class="neg"><strong>▼ 0.32%</strong></td>
+          <td>手動平倉</td>
+        </tr>
+
+        <tr>
+          <td><strong>3024</strong></td>
+          <td>2026-04-20</td>
+          <td>2026-04-22</td>
+          <td class="price">11.77</td>
+          <td class="price">13.7</td>
+          <td class="pos"><strong>▲ 16.40%</strong></td>
+          <td>手動平倉</td>
+        </tr>
+
+        <tr>
+          <td><strong>2365</strong></td>
+          <td>2026-04-20</td>
+          <td>2026-04-22</td>
+          <td class="price">35.63</td>
+          <td class="price">35.8</td>
+          <td class="pos"><strong>▲ 0.48%</strong></td>
+          <td>手動平倉</td>
+        </tr>
+
+        <tr>
+          <td><strong>3338</strong></td>
+          <td>2026-04-20</td>
+          <td>2026-04-22</td>
+          <td class="price">67.76</td>
+          <td class="price">76.0</td>
+          <td class="pos"><strong>▲ 12.16%</strong></td>
+          <td>手動平倉</td>
+        </tr>
+
+        <tr>
+          <td><strong>3138</strong></td>
+          <td>2026-04-20</td>
+          <td>2026-04-22</td>
+          <td class="price">181.0</td>
+          <td class="price">194.5</td>
+          <td class="pos"><strong>▲ 7.46%</strong></td>
+          <td>手動平倉</td>
+        </tr>
+
+        <tr>
+          <td><strong>1605</strong></td>
+          <td>2026-04-16</td>
+          <td>2026-04-20</td>
+          <td class="price">32.48</td>
+          <td class="price">32.2</td>
+          <td class="neg"><strong>▼ 0.86%</strong></td>
+          <td>手動平倉</td>
+        </tr>
+
+        <tr>
+          <td><strong>1608</strong></td>
+          <td>2026-04-16</td>
+          <td>2026-04-20</td>
+          <td class="price">33.33</td>
+          <td class="price">33.15</td>
+          <td class="neg"><strong>▼ 0.54%</strong></td>
+          <td>手動平倉</td>
+        </tr>
+
+        <tr>
+          <td><strong>3035</strong></td>
+          <td>2026-04-16</td>
+          <td>2026-04-20</td>
+          <td class="price">157.13</td>
+          <td class="price">174.0</td>
+          <td class="pos"><strong>▲ 10.74%</strong></td>
+          <td>手動平倉</td>
+        </tr>
+
+        <tr>
+          <td><strong>2365</strong></td>
+          <td>2026-04-15</td>
+          <td>2026-04-16</td>
+          <td class="price">34.93</td>
+          <td class="price">34.25</td>
+          <td class="neg"><strong>▼ 1.95%</strong></td>
+          <td>手動平倉</td>
+        </tr>
+
+        <tr>
+          <td><strong>2485</strong></td>
+          <td>2026-04-15</td>
+          <td>2026-04-16</td>
+          <td class="price">80.47</td>
+          <td class="price">79.5</td>
+          <td class="neg"><strong>▼ 1.21%</strong></td>
+          <td>手動平倉</td>
+        </tr>
+
+        <tr>
+          <td><strong>9933</strong></td>
+          <td>2026-04-15</td>
+          <td>2026-04-16</td>
+          <td class="price">38.13</td>
+          <td class="price">38.55</td>
+          <td class="pos"><strong>▲ 1.10%</strong></td>
+          <td>手動平倉</td>
+        </tr>
+
+        <tr>
+          <td><strong>8033</strong></td>
+          <td>2026-04-15</td>
+          <td>2026-04-16</td>
+          <td class="price">142.62</td>
+          <td class="price">149.0</td>
+          <td class="pos"><strong>▲ 4.47%</strong></td>
+          <td>手動平倉</td>
+        </tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════ 操作說明 ══════════ -->
+<div id="guide" class="tab-content">
+  <div style="max-width:720px">
+
+    <!-- 止損/目標核心說明 -->
+    <div class="callout callout-warn" style="margin-bottom:16px">
+      <h3 style="margin-bottom:10px;font-size:1rem">⚠️ 最重要：止損/目標是以「哪個入場價」計算的？</h3>
+      <table class="explain-tbl">
+        <thead><tr><th>你看哪一頁</th><th>止損/目標基準</th><th>適用對象</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>BUY / WATCH / 隔日沖 訊號頁</td>
+            <td>今日<strong>收盤價</strong>（每次跑都會更新）</td>
+            <td style="color:var(--blue)"><strong>尚未進場、明天要買的人</strong></td>
+          </tr>
+          <tr>
+            <td>💼 持倉管理頁</td>
+            <td>您的<strong>實際入場價</strong>（買入當下鎖定）</td>
+            <td style="color:var(--green)"><strong>已持倉、管理現有部位的人</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px;font-size:.86rem;color:#742a2a">
+        ✅ 結論：已持倉後，不管今天同一支股票有沒有新訊號、新訊號的止損是多少，
+        您管理部位的數字永遠只看「持倉管理」那頁的數字。
+      </p>
+    </div>
+
+    <!-- 隔日沖進場價說明 -->
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:14px">
+      <h3 style="margin-bottom:10px;color:var(--orange)">⚡ 隔日沖：開盤進場區間說明</h3>
+      <table class="explain-tbl">
+        <thead><tr><th>欄位</th><th>說明</th><th>若開盤超出</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="entry-min">✅ 開盤下限</span></td>
+            <td>今日收盤 × 0.97（跌幅 3% 警戒線）</td>
+            <td class="neg">開盤低於此 → 跳空跌，放棄買入</td>
+          </tr>
+          <tr>
+            <td><span class="entry-max">🚫 開盤上限</span></td>
+            <td>今日收盤 × 1.02（BUY）或 × 1.01（WATCH）</td>
+            <td class="neg">開盤高於此 → 追高，放棄買入</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:8px;font-size:.84rem;color:var(--sub)">
+        進場後若當天下跌但無法止損（非當沖戶），請等次日開盤再執行止損，不要恐慌凹單。
+      </p>
+    </div>
+
+    <!-- 每日流程 -->
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:14px">
+      <h3 style="margin-bottom:10px;color:var(--blue)">📋 每日標準操作流程</h3>
+      <div class="cmd-box" style="margin-bottom:8px">
+        # 1. 收盤後執行篩選（每天一次）<br>
+        python main.py --auto all --top-n 200 --only-positive<br><br>
+        # 2. 隔日沖（另一個 bot）<br>
+        cd ../overnight_bot &amp;&amp; python main.py --auto twse --only-positive
+      </div>
+      <ul style="padding-left:18px;color:var(--sub);font-size:.86rem;line-height:2.1">
+        <li>有空格（&lt;5支持倉）→ 優先選 🚀突破 模式</li>
+        <li>隔日沖 → 明早確認開盤在進場區間內再買</li>
+        <li>距壓力 &lt;2% 且整理 &gt;15天 → 盯「待突破清單」</li>
+      </ul>
+    </div>
+
+    <!-- 退場規則 -->
+    <div style="background:#fff5f5;border:1px solid #fed7d7;border-radius:var(--radius);padding:16px;margin-bottom:14px">
+      <h3 style="margin-bottom:10px;color:var(--red)">🚨 退場規則（硬性執行）</h3>
+      <ul style="padding-left:18px;color:#742a2a;font-size:.86rem;line-height:2.1">
+        <li>收盤 ≤ 止損價 → <strong>隔日開盤賣出</strong>，不凹單</li>
+        <li>收盤 ≥ 目標價 → <strong>分批減倉</strong>（先出一半）</li>
+        <li>波段持有超過 <strong>15~20 天</strong> 仍未達目標 → 強制出場</li>
+        <li>隔日沖持有超過 <strong>3 天</strong> → 強制出場，不轉波段</li>
+        <li>隔日沖買入當天跌停（非當沖戶）→ 次日開盤直接賣出，不等反彈</li>
+      </ul>
+    </div>
+
+    <!-- API 用量 -->
+    <div style="background:#fffff0;border:1px solid #faf089;border-radius:var(--radius);padding:14px">
+      <h3 style="color:var(--yellow);margin-bottom:8px">💡 API 用量建議</h3>
+      <p style="font-size:.84rem;color:var(--sub);line-height:1.9">
+        <code>--top-n 200 --only-positive</code> → 掃前200大成交量 + 只收紅股 → 約5分鐘完成<br>
+        FinMind 免費額度 600次/小時，建議不要每次都 <code>--auto all</code> 無限制掃描
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(e => e.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(e => e.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(btn) btn.classList.add('active');
+}
+
+function sortTable(tableId, col) {
+  const tbl = document.getElementById(tableId);
+  if (!tbl) return;
+  const rows = Array.from(tbl.querySelectorAll('tbody tr'));
+  const asc = tbl.dataset.sortCol == col && tbl.dataset.sortDir == 'asc';
+  rows.sort((a, b) => {
+    const va = a.cells[col]?.innerText.replace(/[▲▼%+,×✅🚫⬇⬆]/g,'').trim() || '';
+    const vb = b.cells[col]?.innerText.replace(/[▲▼%+,×✅🚫⬇⬆]/g,'').trim() || '';
+    const na = parseFloat(va), nb = parseFloat(vb);
+    if (!isNaN(na) && !isNaN(nb)) return asc ? na-nb : nb-na;
+    return asc ? va.localeCompare(vb,'zh-TW') : vb.localeCompare(va,'zh-TW');
+  });
+  const tbody = tbl.querySelector('tbody');
+  rows.forEach(r => tbody.appendChild(r));
+  tbl.dataset.sortCol = col;
+  tbl.dataset.sortDir = asc ? 'desc' : 'asc';
+}
+</script>
+</body>
+</html>

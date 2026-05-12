@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>阿慶台股網 — 2026-05-05</title>
+<title>阿慶台股網 — 2026-05-12</title>
 <style>
   :root{
     --bg:#0d1117;--card:#161b22;--card2:#1c2128;--border:#30363d;
@@ -130,6 +130,14 @@
   .entry-max{color:var(--purple);font-weight:700;font-size:.84rem}
   .entry-max-cell th,.entry-max-cell{color:var(--purple)}
 
+  /* ── Risk sizing inline ── */
+  .risk-inline{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:5px;
+                padding:4px 6px;border-radius:4px;font-size:.74rem;
+                background:rgba(88,166,255,.06);border-top:1px solid rgba(88,166,255,.12)}
+  .risk-lots{color:var(--blue);font-weight:600}
+  .risk-cost{color:#aaa}
+  .risk-tp{color:var(--green)}
+
   /* ── Colors ── */
   .pos{color:var(--green);font-weight:600}
   .neg{color:var(--red);font-weight:600}
@@ -239,8 +247,8 @@
     <div class="sub">嗡嘛呢唄咩哞</div>
   </div>
   <div class="meta">
-    updated <strong>2026-05-05 19:27</strong><br>
-    
+    updated <strong>2026-05-12 23:45</strong><br>
+    <span class="badge-break" style="font-size:0.82rem;padding:3px 10px">✅ [大盤正常] TWII站穩月線(41,898>39,163)，0051站上MA10，SPY(-0.8%)，VIX(19.0)無異常。門檻 60/45 分</span>
   </div>
 </div>
 
@@ -249,13 +257,13 @@
 
 <!-- ── Summary Bar ── -->
 <div class="summary">
-  <div class="sum-chip sum-buy"><div class="sum-dot" style="background:var(--blue)"></div>★ BUY&nbsp;<strong>5</strong></div>
-  <div class="sum-chip sum-watch"><div class="sum-dot" style="background:var(--yellow)"></div>◎ WATCH&nbsp;<strong>15</strong></div>
-  <div class="sum-chip sum-pending"><div class="sum-dot" style="background:var(--purple)"></div>⏳ 待突破&nbsp;<strong>0</strong></div>
-  <div class="sum-chip sum-on"><div class="sum-dot" style="background:var(--orange)"></div>⚡ 隔日沖&nbsp;<strong>0買/4看</strong></div>
-  <div class="sum-chip sum-pos"><div class="sum-dot" style="background:var(--green)"></div>💼 持倉&nbsp;<strong>0/5</strong></div>
+  <div class="sum-chip sum-buy"><div class="sum-dot" style="background:var(--blue)"></div>★ BUY&nbsp;<strong>20</strong></div>
+  <div class="sum-chip sum-watch"><div class="sum-dot" style="background:var(--yellow)"></div>◎ WATCH&nbsp;<strong>35</strong></div>
+  <div class="sum-chip sum-pending"><div class="sum-dot" style="background:var(--purple)"></div>⏳ 待突破&nbsp;<strong>1</strong></div>
+  <div class="sum-chip sum-on"><div class="sum-dot" style="background:var(--orange)"></div>⚡ 隔日沖&nbsp;<strong>0買/3看</strong></div>
+  <div class="sum-chip sum-pos"><div class="sum-dot" style="background:var(--green)"></div>💼 持倉&nbsp;<strong>3/5</strong></div>
   <div style="margin-left:auto;display:flex;align-items:center;gap:8px">
-    <span style="font-size:.78rem;color:var(--sub)">2026-05-05</span>
+    <span style="font-size:.78rem;color:var(--sub)">2026-05-12</span>
     <button onclick="location.reload()" style="padding:4px 12px;border:1px solid var(--border);
       border-radius:6px;background:#fff;cursor:pointer;font-size:.78rem;color:var(--sub)">↻ 重新整理</button>
   </div>
@@ -264,12 +272,12 @@
 <!-- ── Tabs ── -->
 <div class="tabs">
   <button class="tab-btn active" onclick="showTab('market',this)">📊 大盤</button>
-  <button class="tab-btn" onclick="showTab('buy',this)">★ BUY（5）</button>
-  <button class="tab-btn" onclick="showTab('watch',this)">◎ WATCH（15）</button>
-  <button class="tab-btn" onclick="showTab('pending',this)">⏳ 待突破（0）</button>
-  <button class="tab-btn" onclick="showTab('overnight',this)">⚡ 隔日沖（0買/4看）</button>
+  <button class="tab-btn" onclick="showTab('buy',this)">★ BUY（20）</button>
+  <button class="tab-btn" onclick="showTab('watch',this)">◎ WATCH（35）</button>
+  <button class="tab-btn" onclick="showTab('pending',this)">⏳ 待突破（1）</button>
+  <button class="tab-btn" onclick="showTab('overnight',this)">⚡ 隔日沖（0買/3看）</button>
   <button class="tab-btn" onclick="showTab('us_overnight',this)">🇺🇸 美股（0買/0看）</button>
-  <button class="tab-btn" onclick="showTab('positions',this)">💼 持倉（0）</button>
+  <button class="tab-btn" onclick="showTab('positions',this)">💼 持倉（3）</button>
   <button class="tab-btn" onclick="showTab('history',this)">📊 績效</button>
   <button class="tab-btn" onclick="showTab('guide',this)">📌 說明</button>
 </div>
@@ -281,53 +289,53 @@
   <div class="mkt-summary">
     
     <div class="mkt-card">
-      <div class="mkt-val pos">40,769.29</div>
-      <div class="mkt-sub pos">+0.16%</div>
+      <div class="mkt-val pos">41,898.32</div>
+      <div class="mkt-sub pos">+0.26%</div>
       <div class="mkt-lbl">加權指數 ^TWII</div>
     </div>
     <div class="mkt-card">
-      <div class="mkt-val pos">1,067</div>
+      <div class="mkt-val pos">326</div>
       <div class="mkt-lbl">上漲家數</div>
     </div>
     <div class="mkt-card">
-      <div class="mkt-val neg">733</div>
+      <div class="mkt-val neg">487</div>
       <div class="mkt-lbl">下跌家數</div>
     </div>
     <div class="mkt-card">
-      <div class="mkt-val">144</div>
+      <div class="mkt-val">68</div>
       <div class="mkt-lbl">平盤家數</div>
     </div>
     <div class="mkt-card">
-      <div class="mkt-val pos">87</div>
+      <div class="mkt-val pos">31</div>
       <div class="mkt-lbl">漲停家數</div>
     </div>
     <div class="mkt-card">
-      <div class="mkt-val neg">2</div>
+      <div class="mkt-val neg">0</div>
       <div class="mkt-lbl">跌停家數</div>
     </div>
     <div class="mkt-card mkt-sentiment" style="background:#ebf8ff;border-color:#2b6cb0">
       <div class="mkt-val" style="color:#2b6cb0">偏多</div>
       <div class="sentiment-bar-wrap">
-        <div class="sentiment-bar-fill" style="width:68%;background:#2b6cb0"></div>
+        <div class="sentiment-bar-fill" style="width:62%;background:#2b6cb0"></div>
       </div>
-      <div class="mkt-lbl">氣氛評分 <strong style="color:#2b6cb0">+35</strong></div>
+      <div class="mkt-lbl">氣氛評分 <strong style="color:#2b6cb0">+25</strong></div>
     </div>
   </div>
 
   <!-- 漲跌家數橫條 -->
   <div style="margin:10px 0 16px">
     <div style="display:flex;height:18px;border-radius:9px;overflow:hidden;font-size:.72rem;font-weight:600;color:#fff">
-      <div style="background:#2f855a;width:55%;display:flex;align-items:center;padding-left:8px;min-width:40px">▲ 55%</div>
-      <div style="background:#718096;flex:1;display:flex;align-items:center;justify-content:center">平 144</div>
-      <div style="background:#c53030;width:38%;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;min-width:40px">38% ▼</div>
+      <div style="background:#2f855a;width:37%;display:flex;align-items:center;padding-left:8px;min-width:40px">▲ 37%</div>
+      <div style="background:#718096;flex:1;display:flex;align-items:center;justify-content:center">平 68</div>
+      <div style="background:#c53030;width:55%;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;min-width:40px">55% ▼</div>
     </div>
   </div>
 
   <!-- 漲停板 -->
   <div class="sec-hdr">
-    <h2>漲停板（87 支）</h2>
+    <h2>漲停板（31 支）</h2>
     <span class="sec-note">按族群分類，游標可查看漲幅與成交量</span>
-    <span style="font-size:.76rem;color:var(--sub);margin-left:auto">更新：2026-05-05 19:10</span>
+    <span style="font-size:.76rem;color:var(--sub);margin-left:auto">更新：2026-05-12 23:40</span>
   </div>
 
   <div class="sector-grid">
@@ -335,81 +343,53 @@
         <div class="sector-card">
           <div class="sector-card-hdr">
             <span class="sector-name">電子零組件</span>
-            <span class="sector-count">45 支</span>
+            <span class="sector-count">13 支</span>
           </div>
-          <div class="lu-chips"><span class="lu-chip" title="南亞科 +10.0% 量144,354張">2408<small>南亞科</small></span><span class="lu-chip" title="華通 +9.8% 量83,904張">2313<small>華通</small></span><span class="lu-chip" title="京元電子 +9.9% 量30,326張">2449<small>京元電子</small></span><span class="lu-chip" title="力成 +9.8% 量27,700張">6239<small>力成</small></span><span class="lu-chip" title="日月光投控 +9.8% 量27,594張">3711<small>日月光投控</small></span><span class="lu-chip" title="華泰 +9.8% 量25,467張">2329<small>華泰</small></span><span class="lu-chip" title="鼎元 +9.9% 量25,246張">2426<small>鼎元</small></span><span class="lu-chip" title="超豐 +10.0% 量17,911張">2441<small>超豐</small></span><span class="lu-chip" title="聯鈞 +9.9% 量16,744張">3450<small>聯鈞</small></span><span class="lu-chip" title="一詮 +10.0% 量16,433張">2486<small>一詮</small></span><span class="lu-chip" title="晶彩科 +9.7% 量14,826張">3535<small>晶彩科</small></span><span class="lu-chip" title="台燿 +9.9% 量13,565張">6274<small>台燿</small></span></div>
+          <div class="lu-chips"><span class="lu-chip" title="蜜望實 +9.9% 量10,556張">8043<small>蜜望實</small></span><span class="lu-chip" title="泰藝 +9.9% 量7,150張">8289<small>泰藝</small></span><span class="lu-chip" title="信昌電 +9.7% 量6,911張">6173<small>信昌電</small></span><span class="lu-chip" title="尚立 +10.0% 量6,399張">3360<small>尚立</small></span><span class="lu-chip" title="閎康 +10.0% 量6,270張">3587<small>閎康</small></span><span class="lu-chip" title="中探針 +9.9% 量4,361張">6217<small>中探針</small></span><span class="lu-chip" title="鈺鎧 +9.9% 量4,251張">5228<small>鈺鎧</small></span><span class="lu-chip" title="陽程 +9.8% 量3,897張">3498<small>陽程</small></span><span class="lu-chip" title="金山電 +9.9% 量2,881張">8042<small>金山電</small></span><span class="lu-chip" title="倚強科 +9.9% 量2,661張">3219<small>倚強科</small></span><span class="lu-chip" title="崇越電 +10.0% 量2,414張">3388<small>崇越電</small></span><span class="lu-chip" title="霖宏 +9.9% 量1,161張">5464<small>霖宏</small></span></div>
         </div>
         <div class="sector-card">
           <div class="sector-card-hdr">
             <span class="sector-name">AI/半導體</span>
-            <span class="sector-count">16 支</span>
+            <span class="sector-count">7 支</span>
           </div>
-          <div class="lu-chips"><span class="lu-chip" title="合晶 +10.0% 量63,957張">6182<small>合晶</small></span><span class="lu-chip" title="漢磊 +9.9% 量29,648張">3707<small>漢磊</small></span><span class="lu-chip" title="欣銓 +9.8% 量18,668張">3264<small>欣銓</small></span><span class="lu-chip" title="環球晶 +9.9% 量16,328張">6488<small>環球晶</small></span><span class="lu-chip" title="福懋科 +9.9% 量13,899張">8131<small>福懋科</small></span><span class="lu-chip" title="凌航 +9.9% 量12,562張">3135<small>凌航</small></span><span class="lu-chip" title="九暘 +9.9% 量7,716張">8040<small>九暘</small></span><span class="lu-chip" title="久元 +9.9% 量6,815張">6261<small>久元</small></span><span class="lu-chip" title="環宇-KY +9.9% 量5,630張">4991<small>環宇-KY</small></span><span class="lu-chip" title="巨有科技 +9.8% 量1,869張">8227<small>巨有科技</small></span><span class="lu-chip" title="宏觀 +10.0% 量1,697張">6568<small>宏觀</small></span><span class="lu-chip" title="雅特力-KY +9.8% 量1,437張">6907<small>雅特力-KY</small></span></div>
+          <div class="lu-chips"><span class="lu-chip" title="廣穎 +9.6% 量12,716張">4973<small>廣穎</small></span><span class="lu-chip" title="晶宏 +9.9% 量3,953張">3141<small>晶宏</small></span><span class="lu-chip" title="萬潤 +9.9% 量3,556張">6187<small>萬潤</small></span><span class="lu-chip" title="IET-KY +10.0% 量2,720張">4971<small>IET-KY</small></span><span class="lu-chip" title="沛亨 +9.9% 量2,174張">6291<small>沛亨</small></span><span class="lu-chip" title="旺矽 +9.9% 量1,001張">6223<small>旺矽</small></span><span class="lu-chip" title="創新服務 +9.8% 量834張">7828<small>創新服務</small></span></div>
         </div>
         <div class="sector-card">
           <div class="sector-card-hdr">
-            <span class="sector-name">其他</span>
-            <span class="sector-count">6 支</span>
+            <span class="sector-name">網通/5G</span>
+            <span class="sector-count">4 支</span>
           </div>
-          <div class="lu-chips"><span class="lu-chip" title="中釉 +9.9% 量4,405張">1809<small>中釉</small></span><span class="lu-chip" title="能率亞洲 +9.9% 量3,999張">7777<small>能率亞洲</small></span><span class="lu-chip" title="旭然 +9.9% 量1,581張">4556<small>旭然</small></span><span class="lu-chip" title="日成-KY +9.9% 量974張">4807<small>日成-KY</small></span><span class="lu-chip" title="花王 +10.0% 量211張">8906<small>花王</small></span><span class="lu-chip" title="達輝-KY +9.9% 量210張">5276<small>達輝-KY</small></span></div>
-        </div>
-        <div class="sector-card">
-          <div class="sector-card-hdr">
-            <span class="sector-name">鋼鐵/機械</span>
-            <span class="sector-count">5 支</span>
-          </div>
-          <div class="lu-chips"><span class="lu-chip" title="東元 +9.9% 量20,779張">1504<small>東元</small></span><span class="lu-chip" title="精確 +9.9% 量8,722張">3162<small>精確</small></span><span class="lu-chip" title="亞力 +10.0% 量5,673張">1514<small>亞力</small></span><span class="lu-chip" title="直得 +9.8% 量4,281張">1597<small>直得</small></span><span class="lu-chip" title="榮田 +10.0% 量558張">7709<small>榮田</small></span></div>
-        </div>
-        <div class="sector-card">
-          <div class="sector-card-hdr">
-            <span class="sector-name">AI/伺服器</span>
-            <span class="sector-count">5 支</span>
-          </div>
-          <div class="lu-chips"><span class="lu-chip" title="麗臺 +10.0% 量6,841張">2465<small>麗臺</small></span><span class="lu-chip" title="宜鼎 +9.7% 量4,713張">5289<small>宜鼎</small></span><span class="lu-chip" title="青雲 +9.9% 量4,071張">5386<small>青雲</small></span><span class="lu-chip" title="寶碩 +10.0% 量895張">5210<small>寶碩</small></span><span class="lu-chip" title="東碩 +9.7% 量334張">3272<small>東碩</small></span></div>
+          <div class="lu-chips"><span class="lu-chip" title="創威 +9.9% 量4,689張">6530<small>創威</small></span><span class="lu-chip" title="聯亞 +9.9% 量4,193張">3081<small>聯亞</small></span><span class="lu-chip" title="豪勉 +9.9% 量4,178張">6218<small>豪勉</small></span><span class="lu-chip" title="光環 +9.7% 量3,484張">3234<small>光環</small></span></div>
         </div>
         <div class="sector-card">
           <div class="sector-card-hdr">
             <span class="sector-name">光電/面板</span>
             <span class="sector-count">3 支</span>
           </div>
-          <div class="lu-chips"><span class="lu-chip" title="東捷 +9.7% 量13,642張">8064<small>東捷</small></span><span class="lu-chip" title="由田 +9.9% 量1,721張">3455<small>由田</small></span><span class="lu-chip" title="聯一光 +9.8% 量898張">3441<small>聯一光</small></span></div>
+          <div class="lu-chips"><span class="lu-chip" title="元太 +9.8% 量61,918張">8069<small>元太</small></span><span class="lu-chip" title="碩禾 +9.9% 量3,053張">3691<small>碩禾</small></span><span class="lu-chip" title="創為精密 +10.0% 量523張">6899<small>創為精密</small></span></div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-card-hdr">
+            <span class="sector-name">其他</span>
+            <span class="sector-count">3 支</span>
+          </div>
+          <div class="lu-chips"><span class="lu-chip" title="創業家 +10.0% 量331張">8477<small>創業家</small></span><span class="lu-chip" title="新零售 +9.7% 量154張">3085<small>新零售</small></span><span class="lu-chip" title="樂威科-KY +9.7% 量42張">4154<small>樂威科-KY</small></span></div>
         </div>
         <div class="sector-card">
           <div class="sector-card-hdr">
             <span class="sector-name">生技/醫療</span>
-            <span class="sector-count">3 支</span>
-          </div>
-          <div class="lu-chips"><span class="lu-chip" title="浩鼎 +9.9% 量1,243張">4174<small>浩鼎</small></span><span class="lu-chip" title="睿生光電 +9.9% 量650張">6861<small>睿生光電</small></span><span class="lu-chip" title="雙鍵 +9.9% 量530張">4764<small>雙鍵</small></span></div>
-        </div>
-        <div class="sector-card">
-          <div class="sector-card-hdr">
-            <span class="sector-name">化工/材料</span>
-            <span class="sector-count">2 支</span>
-          </div>
-          <div class="lu-chips"><span class="lu-chip" title="泓瀚 +9.9% 量2,015張">4741<small>泓瀚</small></span><span class="lu-chip" title="奇鈦科 +9.7% 量659張">3430<small>奇鈦科</small></span></div>
-        </div>
-        <div class="sector-card">
-          <div class="sector-card-hdr">
-            <span class="sector-name">網通/5G</span>
             <span class="sector-count">1 支</span>
           </div>
-          <div class="lu-chips"><span class="lu-chip" title="兆赫 +9.9% 量23,947張">2485<small>兆赫</small></span></div>
-        </div>
-        <div class="sector-card">
-          <div class="sector-card-hdr">
-            <span class="sector-name">建設/不動產</span>
-            <span class="sector-count">1 支</span>
-          </div>
-          <div class="lu-chips"><span class="lu-chip" title="聯上 +9.8% 量886張">4113<small>聯上</small></span></div>
+          <div class="lu-chips"><span class="lu-chip" title="天良 +9.9% 量1,381張">4127<small>天良</small></span></div>
         </div>
   </div>
 
   
     <div class="sec-hdr" style="margin-top:20px">
-      <h2 style="color:var(--red)">跌停板（2 支）</h2>
+      <h2 style="color:var(--red)">跌停板（0 支）</h2>
     </div>
     <div class="tbl-wrap" style="padding:12px 16px">
-      <div class="lu-chips"><span class="ld-chip" title="京晨科 -9.8%">6419<small>京晨科</small></span><span class="ld-chip" title="寶得利 -9.9%">5301<small>寶得利</small></span></div>
+      <div class="lu-chips"><span style="color:var(--sub);font-size:.88rem">今日無跌停股</span></div>
     </div>
 
 </div>
@@ -444,83 +424,323 @@
       </tr></thead>
       <tbody>
         <tr>
-          <td><strong>2329</strong></td>
-          <td style="font-size:.85rem">華泰</td>
-          <td><span class="score-badge">100.0</span></td>
+          <td><strong>1216</strong></td>
+          <td style="font-size:.85rem">統一</td>
+          <td><span class="score-badge">86.3</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>53.41</td>
-          <td><span class="badge-exp-hot">11.64</span></td>
+          <td>56.07</td>
+          <td><span class="badge-exp-warm">3.40</span></td>
           <td>1.39x</td>
-          <td>5.92%</td>
-          <td class="price warn">53.16</td>
-          <td class="price pos">71.01</td>
+          <td>1.62%</td>
+          <td class="price warn">71.5</td>
+          <td class="price pos">77.5</td>
           <td class="price entry-max-cell">—</td>
           <td><span class="hold-tag">20~30 天</span></td>
-          <td class="signals"><span class="chip">短強+4.1%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">信券回補↑</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（距壓力2.8%</span> <span class="chip">整理49天）品質:弱</span> <span class="chip">短強+5.1%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span><div class="risk-inline"><span class="risk-lots">建議<b>8</b>張</span><span class="risk-cost">成本≈$591,200</span><span style="color:#3fb950">止損-3.25%→虧<b>$19,200</b></span><span class="risk-tp">止盈+4.87%→獲利<b>$28,799</b></span></div></td>
         </tr>
 
         <tr>
-          <td><strong>2385</strong></td>
-          <td style="font-size:.85rem">群光</td>
-          <td><span class="score-badge">100.0</span></td>
+          <td><strong>1307</strong></td>
+          <td style="font-size:.85rem">三芳</td>
+          <td><span class="score-badge">85.4</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>55.56</td>
-          <td><span class="badge-exp-warm">3.03</span></td>
-          <td>1.24x</td>
-          <td>2.24%</td>
-          <td class="price warn">121.79</td>
-          <td class="price pos">136.07</td>
-          <td class="price entry-max-cell">—</td>
-          <td><span class="hold-tag">20~30 天</span></td>
-          <td class="signals"><span class="chip">回測支撐買點</span> <span class="chip">短中性0.9%</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
-        </tr>
-
-        <tr>
-          <td><strong>2428</strong></td>
-          <td style="font-size:.85rem">興勤</td>
-          <td><span class="score-badge">100.0</span></td>
-          <td><span class="badge-mom">📈 動能</span></td>
-          <td>55.68</td>
-          <td><span class="badge-exp-hot">5.80</span></td>
-          <td>1.27x</td>
-          <td>3.79%</td>
-          <td class="price warn">168.21</td>
-          <td class="price pos">202.68</td>
+          <td>61.73</td>
+          <td><span class="badge-exp-warm">3.23</span></td>
+          <td>1.33x</td>
+          <td>2.08%</td>
+          <td class="price warn">31.1</td>
+          <td class="price pos">34.47</td>
           <td class="price entry-max-cell">—</td>
           <td><span class="hold-tag">15~20 天</span></td>
-          <td class="signals"><span class="chip">📦盤整蓄力（距壓力5.0%</span> <span class="chip">整理13天）品質:弱</span> <span class="chip">短強+2.0%</span> <span class="chip chip-warn">⚠️10日均量869張 < 1500張（中價股）（滑價風險）</span></td>
+          <td class="signals"><span class="chip">回測支撐買點</span> <span class="chip">短強+1.7%</span> <span class="chip">🌱剛突破月線（起漲初段）</span><div class="risk-inline"><span class="risk-lots">建議<b>14</b>張</span><span class="risk-cost">成本≈$454,300</span><span style="color:#3fb950">止損-4.16%→虧<b>$18,900</b></span><span class="risk-tp">止盈+6.22%→獲利<b>$28,279</b></span></div></td>
         </tr>
 
         <tr>
-          <td><strong>6126</strong></td>
-          <td style="font-size:.85rem">信音</td>
-          <td><span class="score-badge">100.0</span></td>
+          <td><strong>1402</strong></td>
+          <td style="font-size:.85rem">遠東新</td>
+          <td><span class="score-badge">85.1</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>58.62</td>
-          <td><span class="badge-exp-hot">6.47</span></td>
-          <td>1.02x</td>
-          <td>4.22%</td>
-          <td class="price warn">30.81</td>
-          <td class="price pos">37.91</td>
-          <td class="price entry-max-cell">—</td>
-          <td><span class="hold-tag">15~20 天</span></td>
-          <td class="signals"><span class="chip">短強+5.0%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">信券回補↑</span></td>
-        </tr>
-
-        <tr>
-          <td><strong>6239</strong></td>
-          <td style="font-size:.85rem">力成</td>
-          <td><span class="score-badge">100.0</span></td>
-          <td><span class="badge-mom">📈 動能</span></td>
-          <td>52.63</td>
-          <td><span class="badge-exp-hot">11.78</span></td>
-          <td>2.1x</td>
-          <td>5.61%</td>
-          <td class="price warn">198.0</td>
-          <td class="price pos">260.5</td>
+          <td>54.35</td>
+          <td><span class="badge-exp-cool">0.97</span></td>
+          <td>0.68x</td>
+          <td>1.34%</td>
+          <td class="price warn">25.64</td>
+          <td class="price pos">27.41</td>
           <td class="price entry-max-cell">—</td>
           <td><span class="hold-tag">20~30 天</span></td>
-          <td class="signals"><span class="chip">短中性-0.4%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">信券回補↑</span></td>
+          <td class="signals"><span class="chip">回測支撐買點</span> <span class="chip">短中性0.7%</span> <span class="chip">🌱剛突破月線（起漲初段）</span><div class="risk-inline"><span class="risk-lots">建議<b>28</b>張</span><span class="risk-cost">成本≈$737,800</span><span style="color:#3fb950">止損-2.69%→虧<b>$19,880</b></span><span class="risk-tp">止盈+4.02%→獲利<b>$29,679</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>1605</strong></td>
+          <td style="font-size:.85rem">華新</td>
+          <td><span class="score-badge">69.44</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>54.8</td>
+          <td><span class="badge-exp-hot">12.39</span></td>
+          <td>1.71x</td>
+          <td>4.48%</td>
+          <td class="price warn">31.86</td>
+          <td class="price pos">39.7</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">10~15 天</span></td>
+          <td class="signals"><span class="chip">短強+6.2%↑</span> <span class="chip">📊EPS季環比加速↑</span> <span class="chip chip-warn">⚠️財報截止日近（5/15，剩3天）</span><div class="risk-inline"><span class="risk-lots">建議<b>6</b>張</span><span class="risk-cost">成本≈$210,000</span><span style="color:#3fb950">止損-8.97%→虧<b>$18,840</b></span><span class="risk-tp">止盈+13.43%→獲利<b>$28,200</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>1717</strong></td>
+          <td style="font-size:.85rem">長興</td>
+          <td><span class="score-badge">74.9</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>53.83</td>
+          <td><span class="badge-exp-hot">11.79</span></td>
+          <td>1.71x</td>
+          <td>6.61%</td>
+          <td class="price warn">70.11</td>
+          <td class="price pos">96.83</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">20~30 天</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（距壓力7.8%</span> <span class="chip">整理11天）品質:弱</span> <span class="chip">短中性0.4%</span> <span class="chip">🌱剛突破月線（起漲初段）</span><div class="risk-inline"><span class="risk-lots">建議<b>1</b>張</span><span class="risk-cost">成本≈$80,800</span><span style="color:#3fb950">止損-13.23%→虧<b>$10,689</b></span><span class="risk-tp">止盈+19.84%→獲利<b>$16,030</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>2103</strong></td>
+          <td style="font-size:.85rem">台橡</td>
+          <td><span class="score-badge">82.65</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>66.67</td>
+          <td><span class="badge-exp-hot">9.68</span></td>
+          <td>1.34x</td>
+          <td>4.65%</td>
+          <td class="price warn">19.14</td>
+          <td class="price pos">24.05</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">10~15 天</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（距壓力7.0%</span> <span class="chip">整理42天）品質:弱</span> <span class="chip">短強+5.5%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span><div class="risk-inline"><span class="risk-lots">建議<b>10</b>張</span><span class="risk-cost">成本≈$211,000</span><span style="color:#3fb950">止損-9.29%→虧<b>$19,600</b></span><span class="risk-tp">止盈+13.98%→獲利<b>$29,499</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>2353</strong></td>
+          <td style="font-size:.85rem">宏碁</td>
+          <td><span class="score-badge">100.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>52.75</td>
+          <td><span class="badge-exp-warm">4.01</span></td>
+          <td>1.48x</td>
+          <td>2.27%</td>
+          <td class="price warn">27.49</td>
+          <td class="price pos">30.76</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">15~20 天</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（距壓力2.2%</span> <span class="chip">整理14天）品質:弱</span> <span class="chip">短強+1.9%</span> <span class="chip">📈月營收歷史新高</span><div class="risk-inline"><span class="risk-lots">建議<b>15</b>張</span><span class="risk-cost">成本≈$432,000</span><span style="color:#3fb950">止損-4.55%→虧<b>$19,650</b></span><span class="risk-tp">止盈+6.81%→獲利<b>$29,400</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>2364</strong></td>
+          <td style="font-size:.85rem">倫飛</td>
+          <td><span class="score-badge">97.69</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>70.7</td>
+          <td><span class="badge-exp-hot">31.78</span></td>
+          <td>6.4x</td>
+          <td>2.73%</td>
+          <td class="price warn">66.37</td>
+          <td class="price pos">75.94</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">5~10 天</span></td>
+          <td class="signals"><span class="chip">短強+8.2%↑</span> <span class="chip">跳空缺口帶量</span> <span class="chip">🌱剛突破月線（起漲初段）</span><div class="risk-inline"><span class="risk-lots">建議<b>5</b>張</span><span class="risk-cost">成本≈$351,000</span><span style="color:#3fb950">止損-5.46%→虧<b>$19,149</b></span><span class="risk-tp">止盈+8.18%→獲利<b>$28,699</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>2379</strong></td>
+          <td style="font-size:.85rem">瑞昱</td>
+          <td><span class="score-badge">100.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>61.86</td>
+          <td><span class="badge-exp-hot">17.65</span></td>
+          <td>2.58x</td>
+          <td>3.86%</td>
+          <td class="price warn">538.86</td>
+          <td class="price pos">651.71</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">15~20 天</span></td>
+          <td class="signals"><span class="chip">短強+7.7%↑</span> <span class="chip">跳空缺口帶量</span> <span class="chip">🌱剛突破月線（起漲初段）</span><div class="risk-inline"><span class="risk-lots">建議<b>1</b>張</span><span class="risk-cost">成本≈$584,000</span><span style="color:#f85149">⚠️超預算 止損-7.73%→虧<b>$45,139</b></span><span class="risk-tp">止盈+11.59%→獲利<b>$67,710</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>2404</strong></td>
+          <td style="font-size:.85rem">漢唐</td>
+          <td><span class="score-badge">84.5</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>50.0</td>
+          <td><span class="badge-exp-hot">6.10</span></td>
+          <td>1.29x</td>
+          <td>3.62%</td>
+          <td class="price warn">950.71</td>
+          <td class="price pos">1136.43</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">15~20 天</span></td>
+          <td class="signals"><span class="chip">短強+3.1%↑</span> <span class="chip">信券回補↑</span> <span class="chip chip-warn">⚠️財報截止日近（5/15，剩3天）</span><div class="risk-inline"><span class="risk-lots">建議<b>1</b>張</span><span class="risk-cost">成本≈$1,025,000</span><span style="color:#f85149">⚠️超預算 止損-7.25%→虧<b>$74,289</b></span><span class="risk-tp">止盈+10.87%→獲利<b>$111,430</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>2481</strong></td>
+          <td style="font-size:.85rem">強茂</td>
+          <td><span class="score-badge">100.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>48.72</td>
+          <td><span class="badge-exp-hot">11.19</span></td>
+          <td>1.33x</td>
+          <td>5.6%</td>
+          <td class="price warn">96.79</td>
+          <td class="price pos">127.32</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">15~20 天</span></td>
+          <td class="signals"><span class="chip">短強+5.0%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-pos">🏦法人加速建倉↑↑</span><div class="risk-inline"><span class="risk-lots">建議<b>1</b>張</span><span class="risk-cost">成本≈$109,000</span><span style="color:#3fb950">止損-11.2%→虧<b>$12,209</b></span><span class="risk-tp">止盈+16.81%→獲利<b>$18,319</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>2548</strong></td>
+          <td style="font-size:.85rem">華固</td>
+          <td><span class="score-badge">92.3</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>52.73</td>
+          <td><span class="badge-exp-hot">6.83</span></td>
+          <td>1.63x</td>
+          <td>2.76%</td>
+          <td class="price warn">122.36</td>
+          <td class="price pos">140.21</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">20~30 天</span></td>
+          <td class="signals"><span class="chip">回測支撐買點</span> <span class="chip">短強+5.2%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span><div class="risk-inline"><span class="risk-lots">建議<b>2</b>張</span><span class="risk-cost">成本≈$259,000</span><span style="color:#3fb950">止損-5.51%→虧<b>$14,280</b></span><span class="risk-tp">止盈+8.27%→獲利<b>$21,420</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>2606</strong></td>
+          <td style="font-size:.85rem">裕民</td>
+          <td><span class="score-badge">84.26</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>67.01</td>
+          <td><span class="badge-exp-warm">2.32</span></td>
+          <td>0.76x</td>
+          <td>2.52%</td>
+          <td class="price warn">62.01</td>
+          <td class="price pos">70.23</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">10~15 天</span></td>
+          <td class="signals"><span class="chip">短強+2.1%</span> <span class="chip chip-pos">法人連7買波段</span> <span class="chip chip-pos">🏦法人加速建倉↑↑</span><div class="risk-inline"><span class="risk-lots">建議<b>6</b>張</span><span class="risk-cost">成本≈$391,799</span><span style="color:#3fb950">止損-5.04%→虧<b>$19,739</b></span><span class="risk-tp">止盈+7.55%→獲利<b>$29,580</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>3013</strong></td>
+          <td style="font-size:.85rem">晟銘電</td>
+          <td><span class="score-badge">100.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>50.0</td>
+          <td><span class="badge-exp-hot">12.21</span></td>
+          <td>1.86x</td>
+          <td>5.77%</td>
+          <td class="price warn">99.07</td>
+          <td class="price pos">131.39</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">20~30 天</span></td>
+          <td class="signals"><span class="chip">回測支撐買點</span> <span class="chip">短強+1.4%</span> <span class="chip">跳空缺口帶量</span><div class="risk-inline"><span class="risk-lots">建議<b>1</b>張</span><span class="risk-cost">成本≈$112,000</span><span style="color:#3fb950">止損-11.54%→虧<b>$12,930</b></span><span class="risk-tp">止盈+17.31%→獲利<b>$19,389</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>3312</strong></td>
+          <td style="font-size:.85rem">弘憶股</td>
+          <td><span class="score-badge">85.4</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>51.2</td>
+          <td><span class="badge-exp-hot">22.85</span></td>
+          <td>2.95x</td>
+          <td>5.54%</td>
+          <td class="price warn">39.57</td>
+          <td class="price pos">51.89</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">15~20 天</span></td>
+          <td class="signals"><span class="chip">短強+4.0%↑</span> <span class="chip chip-pos">🏦法人加速建倉↑↑</span> <span class="chip">📈月營收歷史新高</span><div class="risk-inline"><span class="risk-lots">建議<b>4</b>張</span><span class="risk-cost">成本≈$178,000</span><span style="color:#3fb950">止損-11.08%→虧<b>$19,720</b></span><span class="risk-tp">止盈+16.61%→獲利<b>$29,560</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>3588</strong></td>
+          <td style="font-size:.85rem">通嘉</td>
+          <td><span class="score-badge">96.6</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>56.11</td>
+          <td><span class="badge-exp-hot">7.10</span></td>
+          <td>1.13x</td>
+          <td>6.28%</td>
+          <td class="price warn">55.61</td>
+          <td class="price pos">75.58</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">20~30 天</span></td>
+          <td class="signals"><span class="chip">短中性-0.1%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️10日均量934張 < 1000張（滑價風險）</span><div class="risk-inline"><span class="risk-lots">建議<b>2</b>張</span><span class="risk-cost">成本≈$127,200</span><span style="color:#3fb950">止損-12.56%→虧<b>$15,980</b></span><span class="risk-tp">止盈+18.84%→獲利<b>$23,959</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>4916</strong></td>
+          <td style="font-size:.85rem">事欣科</td>
+          <td><span class="score-badge">93.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>46.89</td>
+          <td><span class="badge-exp-hot">10.07</span></td>
+          <td>1.58x</td>
+          <td>5.76%</td>
+          <td class="price warn">59.29</td>
+          <td class="price pos">78.57</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">20~30 天</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（量能萎縮</span> <span class="chip">距壓力6.7%</span> <span class="chip">整理11天）品質:弱</span> <span class="chip">短強+1.1%</span> <span class="chip">🌱剛突破月線（起漲初段）</span><div class="risk-inline"><span class="risk-lots">建議<b>2</b>張</span><span class="risk-cost">成本≈$134,000</span><span style="color:#3fb950">止損-11.51%→虧<b>$15,420</b></span><span class="risk-tp">止盈+17.27%→獲利<b>$23,139</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>6104</strong></td>
+          <td style="font-size:.85rem">創惟</td>
+          <td><span class="score-badge">78.27</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>66.22</td>
+          <td><span class="badge-exp-hot">10.51</span></td>
+          <td>1.61x</td>
+          <td>5.09%</td>
+          <td class="price warn">92.51</td>
+          <td class="price pos">118.73</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">10~15 天</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（波動收縮</span> <span class="chip">距壓力5.9%</span> <span class="chip">整理11天）品質:弱</span> <span class="chip">短強+2.8%</span> <span class="chip chip-pos">法人連5買波段</span><div class="risk-inline"><span class="risk-lots">建議<b>1</b>張</span><span class="risk-cost">成本≈$103,000</span><span style="color:#3fb950">止損-10.18%→虧<b>$10,489</b></span><span class="risk-tp">止盈+15.27%→獲利<b>$15,730</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>6134</strong></td>
+          <td style="font-size:.85rem">萬旭</td>
+          <td><span class="score-badge">80.5</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>64.9</td>
+          <td><span class="badge-exp-hot">11.97</span></td>
+          <td>1.63x</td>
+          <td>5.13%</td>
+          <td class="price warn">30.11</td>
+          <td class="price pos">38.71</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">10~15 天</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（距壓力5.5%</span> <span class="chip">整理44天）品質:弱</span> <span class="chip">短強+4.3%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span><div class="risk-inline"><span class="risk-lots">建議<b>5</b>張</span><span class="risk-cost">成本≈$167,750</span><span style="color:#3fb950">止損-10.25%→虧<b>$17,199</b></span><span class="risk-tp">止盈+15.38%→獲利<b>$25,800</b></span></div></td>
+        </tr>
+
+        <tr>
+          <td><strong>6202</strong></td>
+          <td style="font-size:.85rem">盛群</td>
+          <td><span class="score-badge">97.5</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>60.69</td>
+          <td><span class="badge-exp-hot">10.36</span></td>
+          <td>1.33x</td>
+          <td>6.4%</td>
+          <td class="price warn">51.89</td>
+          <td class="price pos">70.92</td>
+          <td class="price entry-max-cell">—</td>
+          <td><span class="hold-tag">15~20 天</span></td>
+          <td class="signals"><span class="chip">短強+2.2%</span> <span class="chip chip-pos">🏦法人加速建倉↑↑</span> <span class="chip">📈月營收歷史新高</span><div class="risk-inline"><span class="risk-lots">建議<b>2</b>張</span><span class="risk-cost">成本≈$119,000</span><span style="color:#3fb950">止損-12.79%→虧<b>$15,219</b></span><span class="risk-tp">止盈+19.19%→獲利<b>$22,840</b></span></div></td>
         </tr></tbody>
     </table>
   </div>
@@ -554,183 +774,423 @@
       </tr></thead>
       <tbody>
         <tr>
-          <td><strong>1605</strong></td>
-          <td style="font-size:.85rem">華新</td>
-          <td><span class="score-badge score-watch">84.41</span></td>
+          <td><strong>1723</strong></td>
+          <td style="font-size:.85rem">中碳</td>
+          <td><span class="score-badge score-watch">90.5</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>50.54</td>
-          <td class="price warn">29.01</td>
-          <td class="price pos">35.73</td>
+          <td>52.41</td>
+          <td class="price warn">76.44</td>
+          <td class="price pos">87.34</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">回測支撐買點</span> <span class="chip">短強+2.5%</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
+          <td class="signals"><span class="chip">回測支撐買點</span> <span class="chip">短強+1.7%</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
         </tr>
 
         <tr>
-          <td><strong>2031</strong></td>
-          <td style="font-size:.85rem">新光鋼</td>
-          <td><span class="score-badge score-watch">88.83</span></td>
+          <td><strong>2409</strong></td>
+          <td style="font-size:.85rem">友達</td>
+          <td><span class="score-badge score-watch">92.4</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>45.67</td>
-          <td class="price warn">39.33</td>
-          <td class="price pos">42.76</td>
+          <td>46.49</td>
+          <td class="price warn">17.09</td>
+          <td class="price pos">21.5</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">回測支撐買點</span> <span class="chip">短強+2.4%</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
+          <td class="signals"><span class="chip">回測支撐買點</span> <span class="chip">短強+3.8%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
         </tr>
 
         <tr>
-          <td><strong>2354</strong></td>
-          <td style="font-size:.85rem">鴻準</td>
-          <td><span class="score-badge score-watch">82.47</span></td>
+          <td><strong>2851</strong></td>
+          <td style="font-size:.85rem">中再保</td>
+          <td><span class="score-badge score-watch">78.28</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>61.61</td>
-          <td class="price warn">50.2</td>
-          <td class="price pos">57.7</td>
+          <td>75.0</td>
+          <td class="price warn">30.56</td>
+          <td class="price pos">33.04</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">短中性0.9%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">信券回補↑</span></td>
+          <td class="signals"><span class="chip">短強+1.4%</span> <span class="chip chip-warn">⚠️品質門檻未達(營收YoY-16.8%)→觀察</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
         </tr>
 
         <tr>
-          <td><strong>2606</strong></td>
-          <td style="font-size:.85rem">裕民</td>
-          <td><span class="score-badge score-watch">87.25</span></td>
-          <td><span class="badge-mom">📈 動能</span></td>
-          <td>55.78</td>
-          <td class="price warn">58.67</td>
-          <td class="price pos">67.99</td>
+          <td><strong>3046</strong></td>
+          <td style="font-size:.85rem">建碁</td>
+          <td><span class="score-badge score-watch">95.4</span></td>
+          <td><span class="badge-base">📦 基底</span></td>
+          <td>73.38</td>
+          <td class="price warn">49.94</td>
+          <td class="price pos">56.1</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">短中性0.1%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">⬇️降級: 今日BUY超過5檔，按總分排第12</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（量能萎縮</span> <span class="chip">距壓力2.8%</span> <span class="chip">整理56天）品質:普通</span> <span class="chip">📦等待突破（距壓力2.8%，品質:普通）</span> <span class="chip">短強+4.5%↑</span></td>
         </tr>
 
         <tr>
-          <td><strong>3006</strong></td>
-          <td style="font-size:.85rem">晶豪科</td>
-          <td><span class="score-badge score-watch">98.36</span></td>
+          <td><strong>3583</strong></td>
+          <td style="font-size:.85rem">辛耘</td>
+          <td><span class="score-badge score-watch">92.06</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>57.38</td>
-          <td class="price warn">148.64</td>
-          <td class="price pos">209.54</td>
+          <td>56.07</td>
+          <td class="price warn">726.71</td>
+          <td class="price pos">1074.93</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">短中性-0.2%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">📈月營收歷史新高</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（距壓力7.0%</span> <span class="chip">整理11天）品質:弱</span> <span class="chip">短強+7.2%↑</span> <span class="chip">📊EPS季環比加速↑</span></td>
         </tr>
 
         <tr>
-          <td><strong>3090</strong></td>
-          <td style="font-size:.85rem">日電貿</td>
-          <td><span class="score-badge score-watch">97.25</span></td>
+          <td><strong>4551</strong></td>
+          <td style="font-size:.85rem">智伸科</td>
+          <td><span class="score-badge score-watch">90.5</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>52.86</td>
-          <td class="price warn">94.39</td>
-          <td class="price pos">122.17</td>
+          <td>58.59</td>
+          <td class="price warn">136.86</td>
+          <td class="price pos">165.96</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">短強+6.8%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">族群同步(電子零組件業)⚡</span></td>
+          <td class="signals"><span class="chip">短強+2.4%</span> <span class="chip">跳空缺口帶量</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
         </tr>
 
         <tr>
-          <td><strong>4770</strong></td>
-          <td style="font-size:.85rem">上品</td>
-          <td><span class="score-badge score-watch">86.75</span></td>
+          <td><strong>4952</strong></td>
+          <td style="font-size:.85rem">凌通</td>
+          <td><span class="score-badge score-watch">79.27</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>56.12</td>
-          <td class="price warn">216.14</td>
-          <td class="price pos">270.79</td>
+          <td>66.97</td>
+          <td class="price warn">45.54</td>
+          <td class="price pos">60.7</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">短強+2.1%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️10日均量742張 < 2000張（中高價股）（滑價風險）</span></td>
+          <td class="signals"><span class="chip">短強+7.2%↑</span> <span class="chip chip-warn">⚠️10日均量825張 < 1000張（滑價風險）</span> <span class="chip">📈月營收歷史新高</span></td>
         </tr>
 
         <tr>
-          <td><strong>5009</strong></td>
-          <td style="font-size:.85rem">榮剛</td>
-          <td><span class="score-badge score-watch">85.75</span></td>
+          <td><strong>4961</strong></td>
+          <td style="font-size:.85rem">天鈺</td>
+          <td><span class="score-badge score-watch">72.62</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>60.77</td>
-          <td class="price warn">31.03</td>
-          <td class="price pos">36.96</td>
+          <td>63.39</td>
+          <td class="price warn">154.57</td>
+          <td class="price pos">194.39</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">📦盤整蓄力（距壓力7.7%</span> <span class="chip">整理30天）品質:弱</span> <span class="chip">短強+5.3%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（距壓力4.2%</span> <span class="chip">整理11天）品質:弱</span> <span class="chip">短強+5.4%↑</span> <span class="chip chip-warn">⚠️10日均量1400張 < 1500張（中價股）（滑價風險）</span></td>
         </tr>
 
         <tr>
-          <td><strong>6257</strong></td>
-          <td style="font-size:.85rem">矽格</td>
-          <td><span class="score-badge score-watch">100.0</span></td>
+          <td><strong>5488</strong></td>
+          <td style="font-size:.85rem">松普</td>
+          <td><span class="score-badge score-watch">76.4</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>60.19</td>
-          <td class="price warn">171.43</td>
-          <td class="price pos">219.11</td>
+          <td>48.68</td>
+          <td class="price warn">9.87</td>
+          <td class="price pos">11.2</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">短強+3.9%↑</span> <span class="chip">信券回補↑</span> <span class="chip">📈月營收歷史新高</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（距壓力3.7%</span> <span class="chip">整理13天）品質:弱</span> <span class="chip">短強+1.1%</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
         </tr>
 
         <tr>
-          <td><strong>6505</strong></td>
-          <td style="font-size:.85rem">台塑化</td>
-          <td><span class="score-badge score-watch">77.58</span></td>
-          <td><span class="badge-mom">📈 動能</span></td>
-          <td>46.15</td>
-          <td class="price warn">49.93</td>
-          <td class="price pos">60.11</td>
+          <td><strong>5490</strong></td>
+          <td style="font-size:.85rem">同亨</td>
+          <td><span class="score-badge score-watch">87.5</span></td>
+          <td><span class="badge-base">📦 基底</span></td>
+          <td>67.23</td>
+          <td class="price warn">26.7</td>
+          <td class="price pos">31.32</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">短強+1.1%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">⬇️降級: 今日BUY超過5檔，按總分排第17</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（量能萎縮</span> <span class="chip">距壓力4.4%</span> <span class="chip">整理30天）品質:普通</span> <span class="chip">📦等待突破（距壓力4.4%，品質:普通）</span> <span class="chip">短強+1.8%</span></td>
         </tr>
 
         <tr>
-          <td><strong>6873</strong></td>
-          <td style="font-size:.85rem">泓德能源</td>
-          <td><span class="score-badge score-watch">88.16</span></td>
-          <td><span class="badge-mom">📈 動能</span></td>
-          <td>67.96</td>
-          <td class="price warn">85.47</td>
-          <td class="price pos">99.54</td>
+          <td><strong>6215</strong></td>
+          <td style="font-size:.85rem">和椿</td>
+          <td><span class="score-badge score-watch">87.5</span></td>
+          <td><span class="badge-base">📦 基底</span></td>
+          <td>62.5</td>
+          <td class="price warn">106.23</td>
+          <td class="price pos">139.41</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">短強+3.3%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️10日均量575張 < 1000張（滑價風險）</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（量能萎縮</span> <span class="chip">距壓力2.0%</span> <span class="chip">整理47天）品質:普通</span> <span class="chip">📦等待突破（距壓力2.0%，品質:普通）</span> <span class="chip">短強+1.2%</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>6411</strong></td>
+          <td style="font-size:.85rem">晶焱</td>
+          <td><span class="score-badge score-watch">83.4</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>56.54</td>
+          <td class="price warn">75.33</td>
+          <td class="price pos">93.01</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短弱-1.2%↓</span> <span class="chip chip-warn">⚠️10日均量484張 < 1000張（滑價風險）</span> <span class="chip">信券回補↑</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>6494</strong></td>
+          <td style="font-size:.85rem">九齊</td>
+          <td><span class="score-badge score-watch">86.3</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>63.16</td>
+          <td class="price warn">51.11</td>
+          <td class="price pos">69.58</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">📦盤整蓄力（距壓力3.9%</span> <span class="chip">整理11天）品質:弱</span> <span class="chip">短強+5.7%↑</span> <span class="chip">📶MACD黃金交叉</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>6533</strong></td>
+          <td style="font-size:.85rem">晶心科</td>
+          <td><span class="score-badge score-watch">73.84</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>57.69</td>
+          <td class="price warn">218.71</td>
+          <td class="price pos">304.43</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短強+2.1%</span> <span class="chip chip-warn">⚠️10日均量1241張 < 2000張（中高價股）（滑價風險）</span> <span class="chip chip-warn">⚠️財報截止日近（5/15，剩3天）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>6548</strong></td>
+          <td style="font-size:.85rem">長科*</td>
+          <td><span class="score-badge score-watch">65.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>45.61</td>
+          <td class="price warn">47.19</td>
+          <td class="price pos">63.47</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短中性-0.3%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️財報截止日近（5/15，剩3天）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>6558</strong></td>
+          <td style="font-size:.85rem">興能高</td>
+          <td><span class="score-badge score-watch">65.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>48.87</td>
+          <td class="price warn">27.51</td>
+          <td class="price pos">34.24</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短強+1.6%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️站月線但季線以下</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>6693</strong></td>
+          <td style="font-size:.85rem">廣閎科</td>
+          <td><span class="score-badge score-watch">63.72</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>48.6</td>
+          <td class="price warn">134.0</td>
+          <td class="price pos">189.0</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">📦盤整蓄力（距壓力7.1%</span> <span class="chip">整理11天）品質:弱</span> <span class="chip">短中性0.1%</span> <span class="chip chip-warn">⚠️10日均量1196張 < 1500張（中價股）（滑價風險）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>6698</strong></td>
+          <td style="font-size:.85rem">旭暉應材</td>
+          <td><span class="score-badge score-watch">75.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>45.65</td>
+          <td class="price warn">28.81</td>
+          <td class="price pos">34.78</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短弱-2.2%↓</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️站月線但季線以下</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>6719</strong></td>
+          <td style="font-size:.85rem">力智</td>
+          <td><span class="score-badge score-watch">53.45</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>66.95</td>
+          <td class="price warn">174.79</td>
+          <td class="price pos">212.82</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短弱-1.9%↓</span> <span class="chip chip-warn">⚠️10日均量752張 < 1500張（中價股）（滑價風險）</span> <span class="chip chip-warn">⚠️財報截止日近（5/15，剩3天）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>6962</strong></td>
+          <td style="font-size:.85rem">奕力-KY</td>
+          <td><span class="score-badge score-watch">70.16</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>62.29</td>
+          <td class="price warn">33.72</td>
+          <td class="price pos">44.67</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">📦盤整蓄力（距壓力7.3%</span> <span class="chip">整理10天）品質:弱</span> <span class="chip">短強+5.6%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>7721</strong></td>
+          <td style="font-size:.85rem">微程式</td>
+          <td><span class="score-badge score-watch">65.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>47.01</td>
+          <td class="price warn">68.59</td>
+          <td class="price pos">95.37</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短中性0.9%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️10日均量792張 < 1000張（滑價風險）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>7788</strong></td>
+          <td style="font-size:.85rem">松川精密</td>
+          <td><span class="score-badge score-watch">56.4</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>66.67</td>
+          <td class="price warn">163.57</td>
+          <td class="price pos">210.89</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短強+6.8%↑</span> <span class="chip chip-warn">⚠️10日均量575張 < 1500張（中價股）（滑價風險）</span> <span class="chip chip-warn">⚠️財報截止日近（5/15，剩3天）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>8021</strong></td>
+          <td style="font-size:.85rem">尖點</td>
+          <td><span class="score-badge score-watch">70.63</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>52.05</td>
+          <td class="price warn">369.21</td>
+          <td class="price pos">518.68</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短弱-1.3%↓</span> <span class="chip chip-warn">⚠️10日均量1383張 < 2000張（中高價股）（滑價風險）</span> <span class="chip chip-warn">⚠️財報截止日近（5/15，剩3天）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>8034</strong></td>
+          <td style="font-size:.85rem">榮群</td>
+          <td><span class="score-badge score-watch">65.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>46.0</td>
+          <td class="price warn">23.72</td>
+          <td class="price pos">27.92</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短強+3.1%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️10日均量735張 < 1000張（滑價風險）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>8044</strong></td>
+          <td style="font-size:.85rem">網家</td>
+          <td><span class="score-badge score-watch">65.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>46.24</td>
+          <td class="price warn">22.91</td>
+          <td class="price pos">26.38</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短強+6.2%↑</span> <span class="chip">跳空缺口帶量</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>8049</strong></td>
+          <td style="font-size:.85rem">晶采</td>
+          <td><span class="score-badge score-watch">65.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>51.61</td>
+          <td class="price warn">25.09</td>
+          <td class="price pos">26.5</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">📦盤整蓄力（距壓力5.0%</span> <span class="chip">整理46天）品質:弱</span> <span class="chip">短弱-1.1%↓</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>8076</strong></td>
+          <td style="font-size:.85rem">伍豐</td>
+          <td><span class="score-badge score-watch">74.01</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>62.28</td>
+          <td class="price warn">23.29</td>
+          <td class="price pos">26.7</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短強+6.5%↑</span> <span class="chip">跳空缺口帶量</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>8088</strong></td>
+          <td style="font-size:.85rem">品安</td>
+          <td><span class="score-badge score-watch">60.95</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>63.87</td>
+          <td class="price warn">50.37</td>
+          <td class="price pos">66.19</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短強+6.0%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️財報截止日近（5/15，剩3天）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>8091</strong></td>
+          <td style="font-size:.85rem">翔名</td>
+          <td><span class="score-badge score-watch">65.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>57.14</td>
+          <td class="price warn">180.57</td>
+          <td class="price pos">229.14</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短強+2.9%</span> <span class="chip">🏆近52週新高</span> <span class="chip chip-warn">⚠️10日均量944張 < 2000張（中高價股）（滑價風險）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>8096</strong></td>
+          <td style="font-size:.85rem">擎亞</td>
+          <td><span class="score-badge score-watch">65.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>57.93</td>
+          <td class="price warn">84.34</td>
+          <td class="price pos">119.24</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短中性0.3%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️財報截止日近（5/15，剩3天）</span></td>
+        </tr>
+
+        <tr>
+          <td><strong>8112</strong></td>
+          <td style="font-size:.85rem">至上</td>
+          <td><span class="score-badge score-watch">75.0</span></td>
+          <td><span class="badge-mom">📈 動能</span></td>
+          <td>52.01</td>
+          <td class="price warn">78.34</td>
+          <td class="price pos">99.49</td>
+          <td class="price entry-max-cell">—</td>
+          <td class="signals"><span class="chip">短中性0.5%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️財報截止日近（5/15，剩3天）</span></td>
         </tr>
 
         <tr>
           <td><strong>8249</strong></td>
           <td style="font-size:.85rem">菱光</td>
-          <td><span class="score-badge score-watch">98.75</span></td>
+          <td><span class="score-badge score-watch">59.68</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>55.21</td>
-          <td class="price warn">47.79</td>
-          <td class="price pos">54.57</td>
+          <td>55.28</td>
+          <td class="price warn">47.93</td>
+          <td class="price pos">55.61</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">回測支撐買點</span> <span class="chip">短強+2.7%</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
+          <td class="signals"><span class="chip">短弱-1.4%↓</span> <span class="chip chip-warn">⚠️站月線但季線以下</span> <span class="chip chip-warn">⚠️10日均量658張 < 1000張（滑價風險）</span></td>
         </tr>
 
         <tr>
-          <td><strong>8936</strong></td>
-          <td style="font-size:.85rem">國統</td>
-          <td><span class="score-badge score-watch">95.5</span></td>
+          <td><strong>8415</strong></td>
+          <td style="font-size:.85rem">大國鋼</td>
+          <td><span class="score-badge score-watch">65.0</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>64.86</td>
-          <td class="price warn">50.39</td>
-          <td class="price pos">55.17</td>
+          <td>68.89</td>
+          <td class="price warn">33.59</td>
+          <td class="price pos">36.0</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">短強+2.3%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">⬇️降級: 今日BUY超過5檔，按總分排第10</span></td>
+          <td class="signals"><span class="chip">短中性0.2%</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip chip-warn">⚠️10日均量542張 < 1000張（滑價風險）</span></td>
         </tr>
 
         <tr>
-          <td><strong>9802</strong></td>
-          <td style="font-size:.85rem">鈺齊-KY</td>
-          <td><span class="score-badge score-watch">92.5</span></td>
+          <td><strong>9939</strong></td>
+          <td style="font-size:.85rem">宏全</td>
+          <td><span class="score-badge score-watch">65.0</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>58.24</td>
-          <td class="price warn">75.4</td>
-          <td class="price pos">87.65</td>
+          <td>52.08</td>
+          <td class="price warn">114.57</td>
+          <td class="price pos">128.14</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">短強+5.5%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">信券回補↑</span></td>
+          <td class="signals"><span class="chip">📦盤整蓄力（距壓力5.9%</span> <span class="chip">整理35天）品質:弱</span> <span class="chip">短強+5.8%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
         </tr>
 
         <tr>
-          <td><strong>9921</strong></td>
-          <td style="font-size:.85rem">巨大</td>
-          <td><span class="score-badge score-watch">84.9</span></td>
+          <td><strong>9946</strong></td>
+          <td style="font-size:.85rem">三發地產</td>
+          <td><span class="score-badge score-watch">65.0</span></td>
           <td><span class="badge-mom">📈 動能</span></td>
-          <td>51.55</td>
-          <td class="price warn">64.89</td>
-          <td class="price pos">74.92</td>
+          <td>50.0</td>
+          <td class="price warn">15.94</td>
+          <td class="price pos">17.59</td>
           <td class="price entry-max-cell">—</td>
-          <td class="signals"><span class="chip">回測支撐買點</span> <span class="chip">短強+1.2%</span> <span class="chip">🌱剛突破月線（起漲初段）</span></td>
+          <td class="signals"><span class="chip">短強+4.2%↑</span> <span class="chip">🌱剛突破月線（起漲初段）</span> <span class="chip">📶MACD黃金交叉</span></td>
         </tr></tbody>
     </table>
   </div>
@@ -754,7 +1214,19 @@
         <th onclick="sortTable('pending-tbl',5)">RSI ↕</th>
         <th>訊號</th>
       </tr></thead>
-      <tbody><tr><td colspan="7" class="empty">今日無蓄力觀察股</td></tr></tbody>
+      <tbody>
+        <tr>
+          <td><strong>2316</strong></td>
+          <td style="font-size:.85rem">楠梓電</td>
+          <td><span class="bq-normal">普通</span></td>
+          <td>
+            <div class="bar-wrap"><div class="bar" style="width:50%"></div></div>
+            <span class="bar-label">10 天</span>
+          </td>
+          <td>1.59%</td>
+          <td>65.33</td>
+          <td class="signals"><span class="chip">📦盤整蓄力（量能萎縮</span> <span class="chip">距壓力1.6%</span> <span class="chip">整理10天）品質:普通</span> <span class="chip">📦等待突破（距壓力1.6%，品質:普通）</span> <span class="chip">短強+2.8%</span></td>
+        </tr></tbody>
     </table>
   </div>
 </div>
@@ -795,7 +1267,7 @@
   </div>
 
   <div class="sec-hdr">
-    <h2 style="color:var(--yellow)">◎ WATCH（4）</h2>
+    <h2 style="color:var(--yellow)">◎ WATCH（3）</h2>
     <span class="sec-note">訊號較弱，謹慎試單</span>
   </div>
   <div class="tbl-wrap">
@@ -815,59 +1287,45 @@
       </tr></thead>
       <tbody>
         <tr>
-          <td><strong>3321</strong></td>
-          <td style="font-size:.85rem">同泰</td>
-          <td><span class="score-badge score-watch">70.9</span></td>
-          <td style="font-size:.82rem;color:var(--sub)">82.0 / 45.0</td>
+          <td><strong>3485</strong></td>
+          <td style="font-size:.85rem">敘豐</td>
+          <td><span class="score-badge score-watch">77.5</span></td>
+          <td style="font-size:.82rem;color:var(--sub)">100.0 / 25.0</td>
           <td>5.0%(輕倉)</td>
-          <td class="price warn">15.31</td>
-          <td class="price pos">20.83</td>
-          <td class="price"><span class="entry-min">≥16.64</span></td>
-          <td class="price"><span class="entry-max">≤17.32</span><br><span style="font-size:.76rem;color:var(--sub)">有效止損 12.1%</span></td>
+          <td class="price warn">254.2</td>
+          <td class="price pos">435.1</td>
+          <td class="price"><span class="entry-min">≥305.06</span></td>
+          <td class="price"><span class="entry-max">≤317.64</span><br><span style="font-size:.76rem;color:var(--sub)">有效止損 20.4%</span></td>
           <td><span class="hold-tag">1~3 天</span></td>
-          <td class="signals"><span class="chip">尾盤位置62%（偏強）</span> <span class="chip">量能1.9倍均量</span> <span class="chip">歷史級爆量（近20日最大）</span> <span class="chip">RSI5=78</span> <span class="chip">突破3日高點</span> <span class="chip">真跳空（開盤越過昨高）</span> <span class="chip">站上5日VWAP(16.6)</span> <span class="chip">今日漲7.2%</span> <span class="chip chip-warn">⚠️10日均量507張 < 1000張（滑價風險）</span></td>
+          <td class="signals"><span class="chip">尾盤位置100%（極強）</span> <span class="chip">量能1.9倍均量</span> <span class="chip">RSI5=45</span> <span class="chip">大長紅實體90%</span> <span class="chip">站上5日VWAP(293.6)</span> <span class="chip">今日漲16.5%</span> <span class="chip">量能持續（昨今連續放量）</span> <span class="chip chip-warn">⚠️10日均量524張 < 2000張（中高價股）（滑價風險）</span></td>
         </tr>
 
         <tr>
-          <td><strong>3479</strong></td>
-          <td style="font-size:.85rem">安勤</td>
-          <td><span class="score-badge score-watch">75.4</span></td>
-          <td style="font-size:.82rem;color:var(--sub)">67.0 / 95.0</td>
-          <td>5.0%(輕倉)</td>
-          <td class="price warn">89.4</td>
-          <td class="price pos">102.9</td>
-          <td class="price"><span class="entry-min">≥91.08</span></td>
-          <td class="price"><span class="entry-max">≤94.84</span><br><span style="font-size:.76rem;color:var(--sub)">有效止損 6.2%</span></td>
+          <td><strong>3491</strong></td>
+          <td style="font-size:.85rem">昇達科</td>
+          <td><span class="score-badge score-watch">80.5</span></td>
+          <td style="font-size:.82rem;color:var(--sub)">100.0 / 35.0</td>
+          <td>7.0%(輕倉)</td>
+          <td class="price warn">1584.0</td>
+          <td class="price pos">2292.0</td>
+          <td class="price"><span class="entry-min">≥1765.4</span></td>
+          <td class="price"><span class="entry-max">≤1838.2</span><br><span style="font-size:.76rem;color:var(--sub)">有效止損 14.3%</span></td>
           <td><span class="hold-tag">1~3 天</span></td>
-          <td class="signals"><span class="chip">量能1.9倍均量</span> <span class="chip">RSI5=71</span> <span class="chip">突破3日高點</span> <span class="chip">真跳空（開盤越過昨高）</span> <span class="chip">站上5日VWAP(92.4)</span> <span class="chip">今日漲3.5%</span> <span class="chip">突破待機區（距52週高2.0%）</span> <span class="chip chip-pos">外資連3買</span> <span class="chip chip-pos">法人今日買超139,000張</span> <span class="chip chip-warn">⚠️10日均量435張 < 1000張（滑價風險）</span> <span class="chip chip-warn">⚠️費後R:R=1.3x（含手續費0.47%，低於1.5x門檻）</span></td>
+          <td class="signals"><span class="chip">尾盤位置100%（極強）</span> <span class="chip">量能2.0倍均量</span> <span class="chip">歷史級爆量（近20日最大）</span> <span class="chip">RSI5=70</span> <span class="chip">突破3日高點</span> <span class="chip">大長紅實體96%</span> <span class="chip">站上5日VWAP(1703.2)</span> <span class="chip">今日漲10.0%</span> <span class="chip">融資下降6.2%</span> <span class="chip chip-warn">⚠️10日均量2001張 < 3000張（高價股）（滑價風險）</span></td>
         </tr>
 
         <tr>
-          <td><strong>6005</strong></td>
-          <td style="font-size:.85rem">群益證</td>
-          <td><span class="score-badge score-watch">93.7</span></td>
-          <td style="font-size:.82rem;color:var(--sub)">91.0 / 100.0</td>
+          <td><strong>4916</strong></td>
+          <td style="font-size:.85rem">事欣科</td>
+          <td><span class="score-badge score-watch">95.7</span></td>
+          <td style="font-size:.82rem;color:var(--sub)">96.0 / 95.0</td>
           <td>10.0%(標準倉)</td>
-          <td class="price warn">27.77</td>
-          <td class="price pos">31.46</td>
-          <td class="price"><span class="entry-min">≥28.13</span></td>
-          <td class="price"><span class="entry-max">≤29.58</span><br><span style="font-size:.76rem;color:var(--sub)">有效止損 6.6%</span></td>
+          <td class="price warn">60.38</td>
+          <td class="price pos">80.24</td>
+          <td class="price"><span class="entry-min">≥64.99</span></td>
+          <td class="price"><span class="entry-max">≤68.34</span><br><span style="font-size:.76rem;color:var(--sub)">有效止損 12.1%</span></td>
           <td><span class="hold-tag">1~3 天</span></td>
-          <td class="signals"><span class="chip">尾盤位置76%（強勢）</span> <span class="chip">量能1.7倍均量</span> <span class="chip">歷史級爆量（近20日最大）</span> <span class="chip">RSI5=76</span> <span class="chip">突破3日高點</span> <span class="chip">大長紅實體76%</span> <span class="chip">站上5日VWAP(28.4)</span> <span class="chip">今日漲3.4%</span> <span class="chip chip-pos">法人今日買超978,869張</span> <span class="chip">融資下降4.6%</span> <span class="chip chip-warn">⚠️費後R:R=0.9x（含手續費0.47%，低於1.5x門檻）</span></td>
-        </tr>
-
-        <tr>
-          <td><strong>8050</strong></td>
-          <td style="font-size:.85rem">廣積</td>
-          <td><span class="score-badge score-watch">78.0</span></td>
-          <td style="font-size:.82rem;color:var(--sub)">75.0 / 85.0</td>
-          <td>5.0%(輕倉)</td>
-          <td class="price warn">40.63</td>
-          <td class="price pos">47.44</td>
-          <td class="price"><span class="entry-min">≥41.61</span></td>
-          <td class="price"><span class="entry-max">≤43.33</span><br><span style="font-size:.76rem;color:var(--sub)">有效止損 6.7%</span></td>
-          <td><span class="hold-tag">1~3 天</span></td>
-          <td class="signals"><span class="chip">量能1.8倍均量</span> <span class="chip">歷史級爆量（近20日最大）</span> <span class="chip">RSI5=64</span> <span class="chip">突破3日高點</span> <span class="chip">站上5日VWAP(42.1)</span> <span class="chip">今日漲3.2%</span> <span class="chip">突破待機區（距52週高1.8%）</span> <span class="chip chip-pos">法人今日買超5,181張</span> <span class="chip">融資下降0.6%</span> <span class="chip chip-warn">⚠️10日均量467張 < 1000張（滑價風險）</span> <span class="chip chip-warn">⚠️費後R:R=1.3x（含手續費0.47%，低於1.5x門檻）</span></td>
+          <td class="signals"><span class="chip">尾盤位置86%（極強）</span> <span class="chip">量能2.0倍均量</span> <span class="chip">RSI5=69</span> <span class="chip">突破3日高點</span> <span class="chip">站上5日VWAP(64.3)</span> <span class="chip">今日漲8.1%</span> <span class="chip">量能持續（昨今連續放量）</span> <span class="chip chip-pos">法人今日買超2,288,373張</span> <span class="chip chip-warn">⚠️費後R:R=1.4x（含手續費0.47%，低於1.5x門檻）</span></td>
         </tr></tbody>
     </table>
   </div>
@@ -920,7 +1378,7 @@
     管理您 850 元倉位的止損/目標，永遠看此頁的數字。
   </div>
   <div class="sec-hdr">
-    <h2>💼 持倉管理（0 / 5 格）</h2>
+    <h2>💼 持倉管理（3 / 5 格）</h2>
     <span class="sec-note">每日收盤後執行 position_tracker.py 更新狀態</span>
   </div>
   <div class="tbl-wrap">
@@ -936,7 +1394,42 @@
         <th title="最長持有天數 - 已持有天數">剩餘天數</th>
         <th>平倉</th>
       </tr></thead>
-      <tbody><tr><td colspan="9" class="empty">目前無持倉，執行 position_tracker.py add 代號 新增</td></tr></tbody>
+      <tbody>
+        <tr>
+          <td><strong>6282</strong><br><span style="font-size:.8rem;color:var(--sub)">康舒</span></td>
+          <td><span class="badge-mom">wave</span></td>
+          <td>2026-05-11</td>
+          <td class="price"><strong>54.05</strong></td>
+          <td class="price warn">48.13 <span class="neg" style="font-size:.78rem">(-11.0%)</span></td>
+          <td class="price pos">62.93 <span class="pos" style="font-size:.78rem">(+16.4%)</span></td>
+          <td style="text-align:center">1 天 / 20</td>
+          <td style="text-align:center"><span class="neu"><strong>19</strong> 天剩</span></td>
+          <td><code style="font-size:.78rem">python position_tracker.py close 6282</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>6259</strong><br><span style="font-size:.8rem;color:var(--sub)">百徽</span></td>
+          <td><span class="badge-mom">wave</span></td>
+          <td>2026-05-11</td>
+          <td class="price"><strong>24.42</strong></td>
+          <td class="price warn">21.06 <span class="neg" style="font-size:.78rem">(-13.8%)</span></td>
+          <td class="price pos">29.46 <span class="pos" style="font-size:.78rem">(+20.6%)</span></td>
+          <td style="text-align:center">1 天 / 20</td>
+          <td style="text-align:center"><span class="neu"><strong>19</strong> 天剩</span></td>
+          <td><code style="font-size:.78rem">python position_tracker.py close 6259</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>6907</strong><br><span style="font-size:.8rem;color:var(--sub)">雅特力-KY</span></td>
+          <td><span class="badge-mom">wave</span></td>
+          <td>2026-05-11</td>
+          <td class="price"><strong>132.61</strong></td>
+          <td class="price warn">107.25 <span class="neg" style="font-size:.78rem">(-19.1%)</span></td>
+          <td class="price pos">170.65 <span class="pos" style="font-size:.78rem">(+28.7%)</span></td>
+          <td style="text-align:center">1 天 / 20</td>
+          <td style="text-align:center"><span class="neu"><strong>19</strong> 天剩</span></td>
+          <td><code style="font-size:.78rem">python position_tracker.py close 6907</code></td>
+        </tr></tbody>
     </table>
   </div>
   <div class="cmd-box">
